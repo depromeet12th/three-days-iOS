@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B76B5672A1C3CB400C45600 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5662A1C3CB400C45600 /* Color.xcassets */; };
+		0B76B5692A1C3E2E00C45600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */; };
 		A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F732A176BA600159864 /* three_days_iOSApp.swift */; };
 		A8D13F762A176BA600159864 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F752A176BA600159864 /* ContentView.swift */; };
 		A8D13F782A176BA700159864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D13F772A176BA700159864 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B76B5662A1C3CB400C45600 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8D13F702A176BA600159864 /* three-days-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "three-days-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D13F732A176BA600159864 /* three_days_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_days_iOSApp.swift; sourceTree = "<group>"; };
 		A8D13F752A176BA600159864 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B76B5632A1C3C4D00C45600 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A8D13F772A176BA700159864 /* Assets.xcassets */,
+				0B76B5662A1C3CB400C45600 /* Color.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		0B76B5642A1C3C6200C45600 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0B76B5652A1C3C6F00C45600 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */,
+				A8D13F752A176BA600159864 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A8D13F672A176BA600159864 = {
 			isa = PBXGroup;
 			children = (
@@ -52,8 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				A8D13F732A176BA600159864 /* three_days_iOSApp.swift */,
-				A8D13F752A176BA600159864 /* ContentView.swift */,
-				A8D13F772A176BA700159864 /* Assets.xcassets */,
+				0B76B5632A1C3C4D00C45600 /* Assets */,
+				0B76B5642A1C3C6200C45600 /* Models */,
+				0B76B5652A1C3C6F00C45600 /* Views */,
 				A8D13F792A176BA700159864 /* Preview Content */,
 			);
 			path = "three-days-iOS";
@@ -126,7 +156,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D13F7B2A176BA700159864 /* Preview Assets.xcassets in Resources */,
+				0B76B5692A1C3E2E00C45600 /* LaunchScreen.storyboard in Resources */,
 				A8D13F782A176BA700159864 /* Assets.xcassets in Resources */,
+				0B76B5672A1C3CB400C45600 /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +305,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -302,6 +335,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
