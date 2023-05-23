@@ -11,7 +11,7 @@ import SwiftUI
 struct three_days_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }
