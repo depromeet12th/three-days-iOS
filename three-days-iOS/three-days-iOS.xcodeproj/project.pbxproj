@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B373C602A1EFCBD003152A1 /* LoginCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */; };
 		0B76B5672A1C3CB400C45600 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5662A1C3CB400C45600 /* Color.xcassets */; };
 		0B76B5692A1C3E2E00C45600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */; };
 		0B76B56C2A1C477E00C45600 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B76B56B2A1C477E00C45600 /* OnboardingView.swift */; };
@@ -22,13 +23,16 @@
 		0BBA36A22A1C58DA0021186C /* BasicButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA36A12A1C58DA0021186C /* BasicButtonStyle.swift */; };
 		0BD37A622A1D89F2005F5190 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A612A1D89F2005F5190 /* TestView.swift */; };
 		0BD37A662A1D9A8C005F5190 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A652A1D9A8C005F5190 /* LoginView.swift */; };
+		0BD37A682A1DAC0A005F5190 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A672A1DAC0A005F5190 /* Member.swift */; };
 		A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F732A176BA600159864 /* three_days_iOSApp.swift */; };
 		A8D13F762A176BA600159864 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F752A176BA600159864 /* MainView.swift */; };
 		A8D13F782A176BA700159864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D13F772A176BA700159864 /* Assets.xcassets */; };
 		A8D13F7B2A176BA700159864 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D13F7A2A176BA700159864 /* Preview Assets.xcassets */; };
+		B639FA68EE722BDFDA470E42 /* Pods_three_days_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4049CD08416D14729395A9 /* Pods_three_days_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCompleteView.swift; sourceTree = "<group>"; };
 		0B76B5662A1C3CB400C45600 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B76B56B2A1C477E00C45600 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -45,11 +49,15 @@
 		0BBA36A12A1C58DA0021186C /* BasicButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButtonStyle.swift; sourceTree = "<group>"; };
 		0BD37A612A1D89F2005F5190 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0BD37A652A1D9A8C005F5190 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0BD37A672A1DAC0A005F5190 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		6E4049CD08416D14729395A9 /* Pods_three_days_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_three_days_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		742ED8F18608707C8C46396B /* Pods-three-days-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-three-days-iOS.debug.xcconfig"; path = "Target Support Files/Pods-three-days-iOS/Pods-three-days-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A8D13F702A176BA600159864 /* three-days-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "three-days-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D13F732A176BA600159864 /* three_days_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_days_iOSApp.swift; sourceTree = "<group>"; };
 		A8D13F752A176BA600159864 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A8D13F772A176BA700159864 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8D13F7A2A176BA700159864 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E3A9C1D681736E77656D6C32 /* Pods-three-days-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-three-days-iOS.release.xcconfig"; path = "Target Support Files/Pods-three-days-iOS/Pods-three-days-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B639FA68EE722BDFDA470E42 /* Pods_three_days_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +85,7 @@
 		0B76B5642A1C3C6200C45600 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0BD37A672A1DAC0A005F5190 /* Member.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -145,8 +155,26 @@
 			isa = PBXGroup;
 			children = (
 				0BD37A652A1D9A8C005F5190 /* LoginView.swift */,
+				0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */,
 			);
 			path = LoginView;
+			sourceTree = "<group>";
+		};
+		8E9A68DA842AF4EFC7A332B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E4049CD08416D14729395A9 /* Pods_three_days_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93AAC99CA221EE66D41FD4CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				742ED8F18608707C8C46396B /* Pods-three-days-iOS.debug.xcconfig */,
+				E3A9C1D681736E77656D6C32 /* Pods-three-days-iOS.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		A8D13F672A176BA600159864 = {
@@ -154,6 +182,8 @@
 			children = (
 				A8D13F722A176BA600159864 /* three-days-iOS */,
 				A8D13F712A176BA600159864 /* Products */,
+				93AAC99CA221EE66D41FD4CA /* Pods */,
+				8E9A68DA842AF4EFC7A332B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,9 +223,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8D13F7E2A176BA700159864 /* Build configuration list for PBXNativeTarget "three-days-iOS" */;
 			buildPhases = (
+				345C1F8EE3636DA1594BC615 /* [CP] Check Pods Manifest.lock */,
 				A8D13F6C2A176BA600159864 /* Sources */,
 				A8D13F6D2A176BA600159864 /* Frameworks */,
 				A8D13F6E2A176BA600159864 /* Resources */,
+				E69BFEDE4E666AC0139B909D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,6 +294,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		345C1F8EE3636DA1594BC615 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-three-days-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E69BFEDE4E666AC0139B909D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-three-days-iOS/Pods-three-days-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-three-days-iOS/Pods-three-days-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-three-days-iOS/Pods-three-days-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A8D13F6C2A176BA600159864 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,7 +346,9 @@
 				0BD37A622A1D89F2005F5190 /* TestView.swift in Sources */,
 				A8D13F762A176BA600159864 /* MainView.swift in Sources */,
 				A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */,
+				0BD37A682A1DAC0A005F5190 /* Member.swift in Sources */,
 				0BBA36A22A1C58DA0021186C /* BasicButtonStyle.swift in Sources */,
+				0B373C602A1EFCBD003152A1 /* LoginCompleteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +471,7 @@
 		};
 		A8D13F7F2A176BA700159864 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 742ED8F18608707C8C46396B /* Pods-three-days-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -411,6 +488,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,6 +504,7 @@
 		};
 		A8D13F802A176BA700159864 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3A9C1D681736E77656D6C32 /* Pods-three-days-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -442,6 +521,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
