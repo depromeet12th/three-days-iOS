@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
+import AuthenticationServices
 
 struct LoginView: View {
     var body: some View {
@@ -26,7 +30,17 @@ struct LoginView: View {
             
             // MARK: Social Login Button
             Button(action: {
-                
+                if (UserApi.isKakaoTalkLoginAvailable()) { // 카카오톡이 설치되어 있는지 확인
+                    UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in // 카카오톡으로 로그인
+                        print(oauthToken)
+                        print(error)
+                    }
+                } else {
+                    UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in // 카카오 계정으로 로그인
+                        print(oauthToken)
+                        print(error)
+                    }
+                }
             }) {
                 HStack {
                     Image("Kakao-logo")
@@ -40,7 +54,28 @@ struct LoginView: View {
             
             
             Button(action: {
-                
+                SignInWithAppleButton(onRequest: { request in // 애플 로그인
+                    request.requestedScopes = [.fullName, .email]
+                }, onCompletion: { result in
+                    switch result { // 성공
+                    case .success(let authResults):
+                        print("=== Apple Login Success ===")
+                        switch authResults.credential {
+                        case let appleIDCredential as ASAuthorizationAppleIDCredential: // 계정 정보 가져오기
+                            let userIndentifier = appleIDCredential.user
+                            let fullName = appleIDCredential.fullName
+                            let email = appleIDCredential.email
+                            let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
+                            let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
+                            
+                        default:
+                            break
+                        }
+                        
+                    case .failure(let error): // 실패
+                        print(error.localizedDescription)
+                    }
+                })
             }) {
                 HStack {
                     Image("Apple-logo")

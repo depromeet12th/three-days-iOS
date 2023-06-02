@@ -46,6 +46,7 @@
 		0B76B5772A1C511100C45600 /* SUIT-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-ExtraLight.ttf"; sourceTree = "<group>"; };
 		0B76B5782A1C511100C45600 /* SUIT-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Heavy.ttf"; sourceTree = "<group>"; };
 		0B76B5842A1C535C00C45600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0B99131E2A281D1600C30ADB /* three-days-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "three-days-iOS.entitlements"; sourceTree = "<group>"; };
 		0BBA36A12A1C58DA0021186C /* BasicButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButtonStyle.swift; sourceTree = "<group>"; };
 		0BD37A612A1D89F2005F5190 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		0BD37A652A1D9A8C005F5190 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -198,6 +199,7 @@
 		A8D13F722A176BA600159864 /* three-days-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				0B99131E2A281D1600C30ADB /* three-days-iOS.entitlements */,
 				0B76B5842A1C535C00C45600 /* Info.plist */,
 				A8D13F732A176BA600159864 /* three_days_iOSApp.swift */,
 				0B76B5632A1C3C4D00C45600 /* Assets */,
@@ -475,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "three-days-iOS/three-days-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"three-days-iOS/Preview Content\"";
@@ -508,6 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "three-days-iOS/three-days-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"three-days-iOS/Preview Content\"";

@@ -14,6 +14,12 @@ struct three_days_iOSApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .onOpenURL { url in
+                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                        _ = AuthController.handleOpenUrl(url: url)
+                    }
+                    
+                }
         }
     }
 }
