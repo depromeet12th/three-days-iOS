@@ -6,88 +6,107 @@
 //
 
 import SwiftUI
-import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 import AuthenticationServices
 
 struct LoginView: View {
+    @ObservedObject var vm = ViewModel()
+    @State private var isLoginnedIn: Bool = false
     var body: some View {
-        VStack {
-            Spacer()
-            
-            // MARK: Logo
-            Text("작심삼일이라면,\n짝심삼일과 함께")
-                .multilineTextAlignment(.center)
-                .font(.custom("SUIT-SemiBold", size: 26))
-            
-            Image("Main-logo")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 160)
-                .padding(EdgeInsets(top: 24, leading: 0, bottom: 129, trailing: 0))
-            
-            
-            // MARK: Social Login Button
-            Button(action: {
-                if (UserApi.isKakaoTalkLoginAvailable()) { // 카카오톡이 설치되어 있는지 확인
-                    UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in // 카카오톡으로 로그인
-                        print(oauthToken)
-                        print(error)
-                    }
-                } else {
-                    UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in // 카카오 계정으로 로그인
-                        print(oauthToken)
-                        print(error)
-                    }
-                }
-            }) {
-                HStack {
-                    Image("Kakao-logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 24)
-                    Text("카카오로 계속하기")
-                }
-            }
-            .buttonStyle(BasicButtonStyle(backgroundColor: Color("kakaoYellow"), fontColor: .black, customFont: "SUIT-Bold"))
-            
-            
-            Button(action: {
-                SignInWithAppleButton(onRequest: { request in // 애플 로그인
-                    request.requestedScopes = [.fullName, .email]
-                }, onCompletion: { result in
-                    switch result { // 성공
-                    case .success(let authResults):
-                        print("=== Apple Login Success ===")
-                        switch authResults.credential {
-                        case let appleIDCredential as ASAuthorizationAppleIDCredential: // 계정 정보 가져오기
-                            let userIndentifier = appleIDCredential.user
-                            let fullName = appleIDCredential.fullName
-                            let email = appleIDCredential.email
-                            let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
-                            let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
-                            
-                        default:
-                            break
+        NavigationView {
+            VStack {
+                Spacer()
+                
+                // MARK: Logo
+                Text("작심삼일이라면,\n짝심삼일과 함께")
+                    .multilineTextAlignment(.center)
+                    .font(.custom("SUIT-SemiBold", size: 26))
+                
+                Image("Main-logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 160)
+                    .padding(EdgeInsets(top: 24, leading: 0, bottom: 129, trailing: 0))
+                
+                
+                // MARK: Social Login Button
+                Button(action: {
+                    if (UserApi.isKakaoTalkLoginAvailable()) { // 카카오톡이 설치되어 있는지 확인
+                        UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in // 카카오톡으로 로그인
+                            print("OAUTHTOKEN : \(String(describing: oauthToken))")
+                            print("ERROR : \(String(describing: error))")
+                            vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
                         }
-                        
-                    case .failure(let error): // 실패
-                        print(error.localizedDescription)
+                    } else {
+                        UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in // 카카오 계정으로 로그인
+                            print("OAUTHTOKEN : \(String(describing: oauthToken))")
+                            print("ERROR : \(String(describing: error))")
+                            vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                        }
                     }
-                })
-            }) {
-                HStack {
-                    Image("Apple-logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 24)
-                    
-                    Text("Apple로 계속하기")
+                }) {
+                    HStack {
+                        Image("Kakao-logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24)
+                        Text("카카오로 계속하기")
+                    }
                 }
+                .buttonStyle(BasicButtonStyle(backgroundColor: Color("kakaoYellow"), fontColor: .black, customFont: "SUIT-Bold"))
+                .onReceive(vm.loginResult.publisher) { result in
+                    switch result {
+                    case .success(let member): // 로그인 성공
+                        vm.setTokens(accessToken: member.token.accessToken, refreshToken: member.token.refreshToken)
+                        isLoginnedIn.toggle()
+                    case .failure(let error): // 로그인 실패
+                        print("Failed to Kakao Login: \(error)")
+                    }
+                }
+                
+                
+                Button(action: {
+                    SignInWithAppleButton(onRequest: { request in // 애플 로그인
+                        request.requestedScopes = [.fullName, .email]
+                    }, onCompletion: { result in
+                        switch result { // 성공
+                        case .success(let authResults):
+                            print("=== Apple Login Success ===")
+                            switch authResults.credential {
+                            case let appleIDCredential as ASAuthorizationAppleIDCredential: // 계정 정보 가져오기
+                                let userIndentifier = appleIDCredential.user
+                                let fullName = appleIDCredential.fullName
+                                let email = appleIDCredential.email
+                                let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
+                                let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
+                                
+                            default:
+                                break
+                            }
+                            
+                        case .failure(let error): // 실패
+                            print(error.localizedDescription)
+                        }
+                    })
+                }) {
+                    HStack {
+                        Image("Apple-logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24)
+                        
+                        Text("Apple로 계속하기")
+                    }
+                }
+                .buttonStyle(BasicButtonStyle(customFont: "SUIT-Bold"))
+                .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
+                
+                NavigationLink(destination: LoginCompleteView(), isActive: $isLoginnedIn) {
+                    EmptyView()
+                }
+                .hidden()
             }
-            .buttonStyle(BasicButtonStyle(customFont: "SUIT-Bold"))
-            .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
         }
     }
 }

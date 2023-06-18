@@ -11,10 +11,12 @@ PODS:
     - KakaoSDKCommon/Common (= 2.15.0)
   - KakaoSDKUser (2.15.0):
     - KakaoSDKAuth (= 2.15.0)
+  - KeychainAccess (4.2.2)
 
 DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKUser
+  - KeychainAccess
 
 SPEC REPOS:
   trunk:
@@ -22,13 +24,15 @@ SPEC REPOS:
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
+    - KeychainAccess
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
   KakaoSDKAuth: 0fe5cf1756e8a9f66f8fc77826061aafa93034f3
   KakaoSDKCommon: 89d863b7f34398e6fb93a0acb28a204908551a39
   KakaoSDKUser: a997ca5c4c18ece2ab30646ff74841bc29d4399d
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
 
-PODFILE CHECKSUM: 95bcdd2edc059e11fcf7fd9e1529c454e85bd096
+PODFILE CHECKSUM: 6ad43327809c251ba766f6b9a9009b6ae22100fd
 
 COCOAPODS: 1.12.1

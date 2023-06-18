@@ -10,17 +10,17 @@ import SwiftUI
 struct MainView: View {
     @AppStorage("isFirstLaunching") var isFirstLaunching: Bool = true
     @State var onboardingIndex: Int = 1
+    let memberRepository = MemberRepository()
     
     var body: some View {
         if isFirstLaunching {
             OnboardingView(isOnboardingActive: $isFirstLaunching, onboardingIndex: $onboardingIndex)
         }
         else {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                Text("Hello, world!")
+            if memberRepository.checkLoginStatus() {
+                HomeView()
+            } else {
+                LoginView()
             }
         }
     }

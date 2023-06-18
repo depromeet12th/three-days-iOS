@@ -11,6 +11,11 @@ import KakaoSDKAuth
 
 @main
 struct three_days_iOSApp: App {
+    init() {
+        // Kakao SDK 초기화
+        KakaoSDK.initSDK(appKey: Config.kakaoAppKey)
+    }
+    
     var body: some Scene {
         WindowGroup {
             MainView()
@@ -18,7 +23,6 @@ struct three_days_iOSApp: App {
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
                     }
-                    
                 }
         }
     }

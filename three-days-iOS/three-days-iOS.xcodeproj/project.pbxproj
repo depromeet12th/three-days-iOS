@@ -24,6 +24,13 @@
 		0BD37A622A1D89F2005F5190 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A612A1D89F2005F5190 /* TestView.swift */; };
 		0BD37A662A1D9A8C005F5190 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A652A1D9A8C005F5190 /* LoginView.swift */; };
 		0BD37A682A1DAC0A005F5190 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A672A1DAC0A005F5190 /* Member.swift */; };
+		A84AC4422A29E83600AE6264 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AC4412A29E83600AE6264 /* Config.swift */; };
+		A87CB08C2A3F06CB00ADF0B1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CB08B2A3F06CB00ADF0B1 /* Utils.swift */; };
+		A87CB08F2A3F0BEF00ADF0B1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CB08E2A3F0BEF00ADF0B1 /* HomeView.swift */; };
+		A890E89C2A3EF7CD0051A5E9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890E89B2A3EF7CD0051A5E9 /* APIService.swift */; };
+		A8A2D4102A34922800399B62 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2D40F2A34922800399B62 /* LoginViewModel.swift */; };
+		A8A2D4132A359F2600399B62 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2D4122A359F2600399B62 /* LoginService.swift */; };
+		A8A2D4192A35A10700399B62 /* MemberRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2D4182A35A10700399B62 /* MemberRepository.swift */; };
 		A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F732A176BA600159864 /* three_days_iOSApp.swift */; };
 		A8D13F762A176BA600159864 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F752A176BA600159864 /* MainView.swift */; };
 		A8D13F782A176BA700159864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D13F772A176BA700159864 /* Assets.xcassets */; };
@@ -53,6 +60,15 @@
 		0BD37A672A1DAC0A005F5190 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		6E4049CD08416D14729395A9 /* Pods_three_days_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_three_days_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		742ED8F18608707C8C46396B /* Pods-three-days-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-three-days-iOS.debug.xcconfig"; path = "Target Support Files/Pods-three-days-iOS/Pods-three-days-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		A84AC4402A29E56200AE6264 /* Authorization.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Authorization.xcconfig; sourceTree = "<group>"; };
+		A84AC4412A29E83600AE6264 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		A87CB08B2A3F06CB00ADF0B1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		A87CB08E2A3F0BEF00ADF0B1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A890E89B2A3EF7CD0051A5E9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		A8A2D40F2A34922800399B62 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A8A2D4122A359F2600399B62 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		A8A2D4182A35A10700399B62 /* MemberRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRepository.swift; sourceTree = "<group>"; };
+		A8B4116A2A34795A00B2C0E5 /* Main.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Main.xcconfig; sourceTree = "<group>"; };
 		A8D13F702A176BA600159864 /* three-days-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "three-days-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D13F732A176BA600159864 /* three_days_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_days_iOSApp.swift; sourceTree = "<group>"; };
 		A8D13F752A176BA600159864 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -133,6 +149,7 @@
 			children = (
 				0B76B56A2A1C473B00C45600 /* OnboardingView */,
 				0BD37A632A1D9A6F005F5190 /* LoginView */,
+				A87CB08D2A3F0BCC00ADF0B1 /* HomeView */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -157,6 +174,7 @@
 			children = (
 				0BD37A652A1D9A8C005F5190 /* LoginView.swift */,
 				0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */,
+				A8A2D40F2A34922800399B62 /* LoginViewModel.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -176,6 +194,49 @@
 				E3A9C1D681736E77656D6C32 /* Pods-three-days-iOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		A84AC43F2A29E48D00AE6264 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				A84AC4402A29E56200AE6264 /* Authorization.xcconfig */,
+				A84AC4412A29E83600AE6264 /* Config.swift */,
+				A8B4116A2A34795A00B2C0E5 /* Main.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		A87CB08D2A3F0BCC00ADF0B1 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				A87CB08E2A3F0BEF00ADF0B1 /* HomeView.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		A8A2D4112A359EF100399B62 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A8A2D4122A359F2600399B62 /* LoginService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A8A2D4142A35A03000399B62 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A890E89B2A3EF7CD0051A5E9 /* APIService.swift */,
+				A87CB08B2A3F06CB00ADF0B1 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A8A2D4172A35A0F400399B62 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A8A2D4182A35A10700399B62 /* MemberRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		A8D13F672A176BA600159864 = {
@@ -199,12 +260,16 @@
 		A8D13F722A176BA600159864 /* three-days-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A8A2D4172A35A0F400399B62 /* Repositories */,
+				A8A2D4142A35A03000399B62 /* Utils */,
 				0B99131E2A281D1600C30ADB /* three-days-iOS.entitlements */,
 				0B76B5842A1C535C00C45600 /* Info.plist */,
 				A8D13F732A176BA600159864 /* three_days_iOSApp.swift */,
 				0B76B5632A1C3C4D00C45600 /* Assets */,
 				0B76B5642A1C3C6200C45600 /* Models */,
 				0B76B5652A1C3C6F00C45600 /* Views */,
+				A8A2D4112A359EF100399B62 /* Services */,
+				A84AC43F2A29E48D00AE6264 /* Configurations */,
 				A8D13F792A176BA700159864 /* Preview Content */,
 			);
 			path = "three-days-iOS";
@@ -246,7 +311,7 @@
 		A8D13F682A176BA600159864 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
+				BuildIndependentTargetsInParallel = NO;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
@@ -344,12 +409,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BD37A662A1D9A8C005F5190 /* LoginView.swift in Sources */,
+				A8A2D4192A35A10700399B62 /* MemberRepository.swift in Sources */,
 				0B76B56C2A1C477E00C45600 /* OnboardingView.swift in Sources */,
+				A87CB08F2A3F0BEF00ADF0B1 /* HomeView.swift in Sources */,
+				A87CB08C2A3F06CB00ADF0B1 /* Utils.swift in Sources */,
+				A84AC4422A29E83600AE6264 /* Config.swift in Sources */,
 				0BD37A622A1D89F2005F5190 /* TestView.swift in Sources */,
+				A890E89C2A3EF7CD0051A5E9 /* APIService.swift in Sources */,
 				A8D13F762A176BA600159864 /* MainView.swift in Sources */,
 				A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */,
+				A8A2D4132A359F2600399B62 /* LoginService.swift in Sources */,
 				0BD37A682A1DAC0A005F5190 /* Member.swift in Sources */,
 				0BBA36A22A1C58DA0021186C /* BasicButtonStyle.swift in Sources */,
+				A8A2D4102A34922800399B62 /* LoginViewModel.swift in Sources */,
 				0B373C602A1EFCBD003152A1 /* LoginCompleteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +431,7 @@
 /* Begin XCBuildConfiguration section */
 		A8D13F7C2A176BA700159864 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8B4116A2A34795A00B2C0E5 /* Main.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -419,6 +492,7 @@
 		};
 		A8D13F7D2A176BA700159864 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8B4116A2A34795A00B2C0E5 /* Main.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

@@ -8,4 +8,5 @@ target 'three-days-iOS' do
   # Pods for three-days-iOS
   pod 'KakaoSDKAuth'
   pod 'KakaoSDKUser'  
+  pod 'KeychainAccess'
 end
