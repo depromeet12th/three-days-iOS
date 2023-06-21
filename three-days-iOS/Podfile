@@ -9,4 +9,7 @@ target 'three-days-iOS' do
   pod 'KakaoSDKAuth'
   pod 'KakaoSDKUser'  
   pod 'KeychainAccess'
+  pod 'FirebaseAnalytics'
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
 end

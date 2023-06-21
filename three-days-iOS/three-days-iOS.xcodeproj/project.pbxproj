@@ -31,6 +31,7 @@
 		A8A2D4102A34922800399B62 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2D40F2A34922800399B62 /* LoginViewModel.swift */; };
 		A8A2D4132A359F2600399B62 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2D4122A359F2600399B62 /* LoginService.swift */; };
 		A8A2D4192A35A10700399B62 /* MemberRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2D4182A35A10700399B62 /* MemberRepository.swift */; };
+		A8B34A612A4078BA00F936A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8B34A602A4078BA00F936A4 /* GoogleService-Info.plist */; };
 		A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F732A176BA600159864 /* three_days_iOSApp.swift */; };
 		A8D13F762A176BA600159864 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F752A176BA600159864 /* MainView.swift */; };
 		A8D13F782A176BA700159864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8D13F772A176BA700159864 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		A8A2D40F2A34922800399B62 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A8A2D4122A359F2600399B62 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		A8A2D4182A35A10700399B62 /* MemberRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberRepository.swift; sourceTree = "<group>"; };
+		A8B34A602A4078BA00F936A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8B4116A2A34795A00B2C0E5 /* Main.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Main.xcconfig; sourceTree = "<group>"; };
 		A8D13F702A176BA600159864 /* three-days-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "three-days-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8D13F732A176BA600159864 /* three_days_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = three_days_iOSApp.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				A8A2D4142A35A03000399B62 /* Utils */,
 				0B99131E2A281D1600C30ADB /* three-days-iOS.entitlements */,
 				0B76B5842A1C535C00C45600 /* Info.plist */,
+				A8B34A602A4078BA00F936A4 /* GoogleService-Info.plist */,
 				A8D13F732A176BA600159864 /* three_days_iOSApp.swift */,
 				0B76B5632A1C3C4D00C45600 /* Assets */,
 				0B76B5642A1C3C6200C45600 /* Models */,
@@ -356,6 +359,7 @@
 				0B76B57A2A1C511100C45600 /* SUIT-Light.ttf in Resources */,
 				0B76B57C2A1C511100C45600 /* SUIT-SemiBold.ttf in Resources */,
 				0B76B5672A1C3CB400C45600 /* Color.xcassets in Resources */,
+				A8B34A612A4078BA00F936A4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -79,4 +79,6 @@ struct MemberRepository {
             return false
         }
     }
+    
+    /// 클라이언트 정보 추가 시 사용하는 API , fcm-token 추가 등록 · 갱신
 }
