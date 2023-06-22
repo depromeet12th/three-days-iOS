@@ -72,7 +72,7 @@ struct OnboardingView: View {
                     }
                     .buttonStyle(BasicButtonStyle())
                 } else {
-                    NavigationLink(destination: TestView()) {
+                    NavigationLink(destination: LoginView()) {
                         Text("시작하기")
                     }
                     .simultaneousGesture(TapGesture().onEnded{

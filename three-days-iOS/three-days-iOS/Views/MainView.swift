@@ -10,14 +10,14 @@ import SwiftUI
 struct MainView: View {
     @AppStorage("isFirstLaunching") var isFirstLaunching: Bool = true
     @State var onboardingIndex: Int = 1
-    let memberRepository = MemberRepository()
+    let memberService = MemberService()
     
     var body: some View {
         if isFirstLaunching {
             OnboardingView(isOnboardingActive: $isFirstLaunching, onboardingIndex: $onboardingIndex)
         }
         else {
-            if memberRepository.checkLoginStatus() {
+            if memberService.checkLoginStatus() {
                 HomeView()
             } else {
                 LoginView()

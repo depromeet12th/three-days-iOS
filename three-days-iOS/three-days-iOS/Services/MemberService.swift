@@ -1,24 +1,21 @@
 //
-//  LoginRepository.swift
+//  MemberService.swift
 //  three-days-iOS
 //
-//  Created by 최정인 on 2023/06/11.
+//  Created by 최정인 on 2023/06/22.
 //
 
 import Foundation
 import Combine
 import KeychainAccess
 
-struct MemberRepository {
+struct MemberService {
     private let loginURL = "\(Config.apiURL)/api/v1/members"
-    private let logoutURL = "\(Config.apiURL)/api/v1/members/logout"
-    
     private var cancellables = Set<AnyCancellable>()
     
     /// 멤버 추가
     mutating func login(certificationSubject: String, socialToken: String, completion: @escaping (Result<Member, Error>) -> Void) {
-        let urlString = "\(loginURL)"
-        let url = URL(string: urlString)!
+        let url = URL(string: loginURL)!
         var request = URLRequest(url: url)
         
         request.httpMethod = "POST"
@@ -29,7 +26,7 @@ struct MemberRepository {
         request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         print(request)
         
-        APIService.executeRequest(request, responseType: Member.self)
+        NetworkAgent.executeRequest(request, responseType: Member.self)
             .sink(receiveCompletion: { sinkCompletion in
                 switch sinkCompletion {
                 case .finished:
@@ -43,9 +40,9 @@ struct MemberRepository {
             .store(in: &cancellables)
     }
     
-    /// token들을 키체인에 저장하는 함수
-    func saveTokenToKeychain(accessToken: String, refreshToken: String) {
-        let keychain = Keychain(service: "com.depromeet.three-days-iOS")
+    /// 키체인에 token 값 저장
+    func setTokenToKeychain(accessToken: String, refreshToken: String) {
+        let keychain = Keychain(service: "\(Config.bundleID)")
         
         do {
             try keychain.set(accessToken, key: "accessToken")
@@ -55,30 +52,26 @@ struct MemberRepository {
         }
     }
     
-    /// 키체인에서 저장된 token 값 가져오는 함수
-    func retrieveTokenFromKeychain() -> (accessToken: String?, refreshToken: String?) {
-        let keychain = Keychain(service: "com.depromeet.three-days-iOS")
+    /// 저장된 token 값 키체인에서 가져오기
+    func getTokenFromKeychain() -> (accessToken: String?, refreshToken: String?) {
+        let keychain = Keychain(service: "\(Config.bundleID)")
         
         do {
             let accessToken = try keychain.get("accessToken")
             let refreshToken = try keychain.get("refreshToken")
-            
             return (accessToken, refreshToken)
         } catch {
-            print("Failed to retrieve tokens from Keycahin: \(error)")
+            print("Failed to get tokens from Keychain: \(error)")
             return (nil, nil)
         }
     }
     
-    /// 저장된 토큰 검사 후, 자동 로그인 설정
+    ///
     func checkLoginStatus() -> Bool {
-        let tokens = self.retrieveTokenFromKeychain()
-        if let accessToken = tokens.accessToken {
+        let tokens = self.getTokenFromKeychain()
+        if tokens.accessToken != nil {
             return true
-        } else {
-            return false
         }
+        return false
     }
-    
-    /// 클라이언트 정보 추가 시 사용하는 API , fcm-token 추가 등록 · 갱신
 }

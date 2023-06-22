@@ -10,21 +10,21 @@ import Foundation
 extension LoginView {
     class ViewModel: ObservableObject {
         @Published var loginResult: Result<Member, Error>? = nil
-        var memberRepository = MemberRepository()
+        var memberService = MemberService()
         
-        // 로그인
+        /// 로그인
         func login(certificationSubject: String, socialToken: String) {
-            memberRepository.login(certificationSubject: certificationSubject, socialToken: socialToken) { result in
+            memberService.login(certificationSubject: certificationSubject, socialToken: socialToken) { result in
                 self.loginResult = result
             }
         }
         
-        // Token 저장
+        /// Token 저장
         func setTokens(accessToken: String, refreshToken: String) {
-            memberRepository.saveTokenToKeychain(accessToken: accessToken, refreshToken: refreshToken)
+            memberService.setTokenToKeychain(accessToken: accessToken, refreshToken: refreshToken)
         }
         
-        // Token 가져오기
+        /// Token 가져오기
         func getTokens() {
             
         }

@@ -1,5 +1,5 @@
 //
-//  APIService.swift
+//  NetworkAgent.swift
 //  three-days-iOS
 //
 //  Created by 최정인 on 2023/06/18.
@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-struct APIService {
-    // API 통신 
+// 네트워크 통신
+struct NetworkAgent {
     static func executeRequest<T: Decodable>(_ request:URLRequest, responseType: T.Type) -> AnyPublisher<T, Error> {
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { data, response -> Data in

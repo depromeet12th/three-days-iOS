@@ -10,4 +10,5 @@ import Foundation
 struct Config {
     static let apiURL = Bundle.main.object(forInfoDictionaryKey: "API_URL")!
     static let kakaoAppKey = Bundle.main.object(forInfoDictionaryKey: "KAKAO_APP_KEY") as! String
+    static let bundleID = Bundle.main.bundleIdentifier ?? ""
 }
