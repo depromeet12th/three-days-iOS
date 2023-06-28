@@ -66,42 +66,82 @@ struct LoginView: View {
                 }
                 
                 
-                Button(action: {
-                    SignInWithAppleButton(onRequest: { request in // 애플 로그인
-                        request.requestedScopes = [.fullName, .email]
-                    }, onCompletion: { result in
-                        switch result { // 성공
-                        case .success(let authResults):
-                            print("=== Apple Login Success ===")
-                            switch authResults.credential {
-                            case let appleIDCredential as ASAuthorizationAppleIDCredential: // 계정 정보 가져오기
-                                let userIndentifier = appleIDCredential.user
-                                let fullName = appleIDCredential.fullName
-                                let email = appleIDCredential.email
-                                let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
-                                let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
-                                
-                            default:
-                                break
-                            }
+                // MARK: the new one !!
+                SignInWithAppleButton(onRequest: { request in
+                    request.requestedScopes = [.fullName, .email]
+                }, onCompletion: { result in
+                    switch result {
+                    case .success(let authResults):
+                        print("Authorization Successful! 🎉")
+                        switch authResults.credential {
+                        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+                            let userIdentifier = appleIDCredential.user
+                            let fullName = appleIDCredential.fullName
+                            let email = appleIDCredential.email
+                            let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
+                            let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
+                            vm.login(certificationSubject: "APPLE", socialToken: identifyToken!)
                             
-                        case .failure(let error): // 실패
-                            print(error.localizedDescription)
+                        default:
+                            break
                         }
-                    })
-                }) {
-                    HStack {
-                        Image("Apple-logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 24)
-                        
-                        Text("Apple로 계속하기")
+                    case .failure(let error):
+                        print("Authorization Failed: \(error.localizedDescription)")
                     }
-                }
-                .buttonStyle(BasicButtonStyle(customFont: "SUIT-Bold"))
-                .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
+                })
+                .frame(width: 320, height: 56)
+                .font(.custom("SUIT-SemiBold", size: 16))
+                .cornerRadius(15)
                 
+                
+                
+//                Button(action: {
+//                    // MARK: Test 임시
+////                    let appleIDProvider = ASAuthorizationAppleIDProvider()
+////                    let request = appleIDProvider.createRequest()
+////                    request.requestedScopes = [.fullName, .email]
+////
+////                    let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+////
+//
+//
+//                    // MARK: 기존 코드 ... 작동 안됨
+//                    SignInWithAppleButton(onRequest: { request in // 애플 로그인
+//                        request.requestedScopes = [.fullName, .email]
+//                    }, onCompletion: { result in
+//                        switch result { // 성공
+//                        case .success(let authResults):
+//                            print("=== Apple Login Success ===")
+//                            switch authResults.credential {
+//                            case let appleIDCredential as ASAuthorizationAppleIDCredential: // 계정 정보 가져오기
+//                                let userIndentifier = appleIDCredential.user
+//                                let fullName = appleIDCredential.fullName
+//                                let email = appleIDCredential.email
+//                                let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
+//                                let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
+//                                vm.login(certificationSubject: "APPLE", socialToken: identifyToken!)
+//
+//                            default:
+//                                break
+//                            }
+//
+//                        case .failure(let error): // 실패
+//                            print(error.localizedDescription)
+//                        }
+//                    })
+//                }) {
+//                    HStack {
+//                        Image("Apple-logo")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 24)
+//
+//                        Text("Apple로 계속하기")
+//                    }
+//                }
+//                .buttonStyle(BasicButtonStyle(customFont: "SUIT-Bold"))
+//                .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
+//
                 NavigationLink(destination: LoginCompleteView(), isActive: $isLoginnedIn) {
                     EmptyView()
                 }
