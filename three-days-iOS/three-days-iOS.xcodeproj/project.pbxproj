@@ -24,11 +24,15 @@
 		0BD04AA82A43D8AA00CD0ED1 /* MemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD04AA72A43D8AA00CD0ED1 /* MemberService.swift */; };
 		0BD37A662A1D9A8C005F5190 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A652A1D9A8C005F5190 /* LoginView.swift */; };
 		0BD37A682A1DAC0A005F5190 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A672A1DAC0A005F5190 /* Member.swift */; };
+		0BF80BA92A4E9ACC0097EC8F /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF80BA82A4E9ACC0097EC8F /* HabitViewModel.swift */; };
+		0BF80BAB2A4E9DD90097EC8F /* HabitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF80BAA2A4E9DD90097EC8F /* HabitService.swift */; };
+		0BF80BAD2A4EA0B20097EC8F /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF80BAC2A4EA0B20097EC8F /* Habit.swift */; };
+		0BF80BAF2A4EB1A50097EC8F /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF80BAE2A4EB1A50097EC8F /* CustomAlertView.swift */; };
 		A84AC4422A29E83600AE6264 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AC4412A29E83600AE6264 /* Config.swift */; };
 		A87CB08C2A3F06CB00ADF0B1 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CB08B2A3F06CB00ADF0B1 /* Utils.swift */; };
 		A87CB08F2A3F0BEF00ADF0B1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87CB08E2A3F0BEF00ADF0B1 /* HomeView.swift */; };
 		A890E89C2A3EF7CD0051A5E9 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890E89B2A3EF7CD0051A5E9 /* NetworkAgent.swift */; };
-		A8A2D4102A34922800399B62 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2D40F2A34922800399B62 /* LoginViewModel.swift */; };
+		A8A2D4102A34922800399B62 /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A2D40F2A34922800399B62 /* MemberViewModel.swift */; };
 		A8B34A612A4078BA00F936A4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8B34A602A4078BA00F936A4 /* GoogleService-Info.plist */; };
 		A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F732A176BA600159864 /* three_days_iOSApp.swift */; };
 		A8D13F762A176BA600159864 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D13F752A176BA600159864 /* MainView.swift */; };
@@ -57,6 +61,10 @@
 		0BD04AA72A43D8AA00CD0ED1 /* MemberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberService.swift; sourceTree = "<group>"; };
 		0BD37A652A1D9A8C005F5190 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		0BD37A672A1DAC0A005F5190 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		0BF80BA82A4E9ACC0097EC8F /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
+		0BF80BAA2A4E9DD90097EC8F /* HabitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitService.swift; sourceTree = "<group>"; };
+		0BF80BAC2A4EA0B20097EC8F /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		0BF80BAE2A4EB1A50097EC8F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		6E4049CD08416D14729395A9 /* Pods_three_days_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_three_days_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		742ED8F18608707C8C46396B /* Pods-three-days-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-three-days-iOS.debug.xcconfig"; path = "Target Support Files/Pods-three-days-iOS/Pods-three-days-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A84AC4402A29E56200AE6264 /* Authorization.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Authorization.xcconfig; sourceTree = "<group>"; };
@@ -64,7 +72,7 @@
 		A87CB08B2A3F06CB00ADF0B1 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		A87CB08E2A3F0BEF00ADF0B1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A890E89B2A3EF7CD0051A5E9 /* NetworkAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAgent.swift; sourceTree = "<group>"; };
-		A8A2D40F2A34922800399B62 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A8A2D40F2A34922800399B62 /* MemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
 		A8B34A602A4078BA00F936A4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8B4116A2A34795A00B2C0E5 /* Main.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Main.xcconfig; sourceTree = "<group>"; };
 		A8D13F702A176BA600159864 /* three-days-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "three-days-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				0BD37A672A1DAC0A005F5190 /* Member.swift */,
+				0BF80BAC2A4EA0B20097EC8F /* Habit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 				0B76B56A2A1C473B00C45600 /* OnboardingView */,
 				0BD37A632A1D9A6F005F5190 /* LoginView */,
 				A87CB08D2A3F0BCC00ADF0B1 /* HomeView */,
+				0BF80BAE2A4EB1A50097EC8F /* CustomAlertView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -169,7 +179,8 @@
 		0BD04AA92A43D8E000CD0ED1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				A8A2D40F2A34922800399B62 /* LoginViewModel.swift */,
+				A8A2D40F2A34922800399B62 /* MemberViewModel.swift */,
+				0BF80BA82A4E9ACC0097EC8F /* HabitViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -222,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				0BD04AA72A43D8AA00CD0ED1 /* MemberService.swift */,
+				0BF80BAA2A4E9DD90097EC8F /* HabitService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -406,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BF80BAF2A4EB1A50097EC8F /* CustomAlertView.swift in Sources */,
 				0BD37A662A1D9A8C005F5190 /* LoginView.swift in Sources */,
 				0BD04AA82A43D8AA00CD0ED1 /* MemberService.swift in Sources */,
 				0B76B56C2A1C477E00C45600 /* OnboardingView.swift in Sources */,
@@ -415,9 +428,12 @@
 				A890E89C2A3EF7CD0051A5E9 /* NetworkAgent.swift in Sources */,
 				A8D13F762A176BA600159864 /* MainView.swift in Sources */,
 				A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */,
+				0BF80BA92A4E9ACC0097EC8F /* HabitViewModel.swift in Sources */,
 				0BD37A682A1DAC0A005F5190 /* Member.swift in Sources */,
+				0BF80BAB2A4E9DD90097EC8F /* HabitService.swift in Sources */,
 				0BBA36A22A1C58DA0021186C /* BasicButtonStyle.swift in Sources */,
-				A8A2D4102A34922800399B62 /* LoginViewModel.swift in Sources */,
+				A8A2D4102A34922800399B62 /* MemberViewModel.swift in Sources */,
+				0BF80BAD2A4EA0B20097EC8F /* Habit.swift in Sources */,
 				0B373C602A1EFCBD003152A1 /* LoginCompleteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

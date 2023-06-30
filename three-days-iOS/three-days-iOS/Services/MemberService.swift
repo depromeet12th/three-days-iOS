@@ -24,17 +24,18 @@ struct MemberService {
         
         let body = ["certificationSubject": certificationSubject, "socialToken": socialToken]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-        print(request)
+        print("======= REQUEST : \(request) =======")
         
         NetworkAgent.executeRequest(request, responseType: Member.self)
             .sink(receiveCompletion: { sinkCompletion in
-                switch sinkCompletion {
+                switch sinkCompletion { // 네트워크 실패
                 case .finished:
                     break
                 case .failure(let error):
+                    print("NETWORK FAILED: \(error.localizedDescription)")
                     completion(.failure(error))
                 }
-            }, receiveValue: { response in
+            }, receiveValue: { response in // 네트워크 성공
                 completion(.success(response))
             })
             .store(in: &cancellables)

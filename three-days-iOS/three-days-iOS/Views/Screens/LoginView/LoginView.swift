@@ -11,8 +11,11 @@ import KakaoSDKUser
 import AuthenticationServices
 
 struct LoginView: View {
-    @ObservedObject var vm = ViewModel()
+    @ObservedObject var vm = MemberViewModel()
+    
+    @State private var presentationAnchor: ASPresentationAnchor?
     @State private var isLoginnedIn: Bool = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -36,13 +39,13 @@ struct LoginView: View {
                         UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in // 카카오톡으로 로그인
                             print("OAUTHTOKEN : \(String(describing: oauthToken))")
                             print("ERROR : \(String(describing: error))")
-                            vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                            self.vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
                         }
                     } else {
                         UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in // 카카오 계정으로 로그인
                             print("OAUTHTOKEN : \(String(describing: oauthToken))")
                             print("ERROR : \(String(describing: error))")
-                            vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                            self.vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
                         }
                     }
                 }) {
@@ -58,96 +61,87 @@ struct LoginView: View {
                 .onReceive(vm.loginResult.publisher) { result in
                     switch result {
                     case .success(let member): // 로그인 성공
-                        vm.setTokens(accessToken: member.token.accessToken, refreshToken: member.token.refreshToken)
-                        isLoginnedIn.toggle()
+                        self.vm.setTokens(accessToken: member.token.accessToken, refreshToken: member.token.refreshToken)
+                        self.isLoginnedIn.toggle()
                     case .failure(let error): // 로그인 실패
                         print("Failed to Kakao Login: \(error)")
                     }
                 }
                 
                 
-                // MARK: the new one !!
-                SignInWithAppleButton(onRequest: { request in
-                    request.requestedScopes = [.fullName, .email]
-                }, onCompletion: { result in
-                    switch result {
-                    case .success(let authResults):
-                        print("Authorization Successful! 🎉")
-                        switch authResults.credential {
-                        case let appleIDCredential as ASAuthorizationAppleIDCredential:
-                            let userIdentifier = appleIDCredential.user
-                            let fullName = appleIDCredential.fullName
-                            let email = appleIDCredential.email
-                            let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
-                            let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
-                            vm.login(certificationSubject: "APPLE", socialToken: identifyToken!)
-                            
-                        default:
-                            break
-                        }
-                    case .failure(let error):
-                        print("Authorization Failed: \(error.localizedDescription)")
+                // MARK: Apple Login
+                Button(action: {
+                    self.AppleSignIn()
+                }) {
+                    HStack {
+                        Image("Apple-logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24)
+
+                        Text("Apple로 계속하기")
                     }
-                })
-                .frame(width: 320, height: 56)
-                .font(.custom("SUIT-SemiBold", size: 16))
-                .cornerRadius(15)
+                }
+                .buttonStyle(BasicButtonStyle(customFont: "SUIT-Bold"))
+                .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
                 
-                
-                
-//                Button(action: {
-//                    // MARK: Test 임시
-////                    let appleIDProvider = ASAuthorizationAppleIDProvider()
-////                    let request = appleIDProvider.createRequest()
-////                    request.requestedScopes = [.fullName, .email]
-////
-////                    let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-////
-//
-//
-//                    // MARK: 기존 코드 ... 작동 안됨
-//                    SignInWithAppleButton(onRequest: { request in // 애플 로그인
-//                        request.requestedScopes = [.fullName, .email]
-//                    }, onCompletion: { result in
-//                        switch result { // 성공
-//                        case .success(let authResults):
-//                            print("=== Apple Login Success ===")
-//                            switch authResults.credential {
-//                            case let appleIDCredential as ASAuthorizationAppleIDCredential: // 계정 정보 가져오기
-//                                let userIndentifier = appleIDCredential.user
-//                                let fullName = appleIDCredential.fullName
-//                                let email = appleIDCredential.email
-//                                let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
-//                                let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
-//                                vm.login(certificationSubject: "APPLE", socialToken: identifyToken!)
-//
-//                            default:
-//                                break
-//                            }
-//
-//                        case .failure(let error): // 실패
-//                            print(error.localizedDescription)
-//                        }
-//                    })
-//                }) {
-//                    HStack {
-//                        Image("Apple-logo")
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 24)
-//
-//                        Text("Apple로 계속하기")
-//                    }
-//                }
-//                .buttonStyle(BasicButtonStyle(customFont: "SUIT-Bold"))
-//                .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
-//
                 NavigationLink(destination: LoginCompleteView(), isActive: $isLoginnedIn) {
                     EmptyView()
                 }
                 .hidden()
             }
         }
+    }
+    
+    func AppleSignIn() {
+        let appleSignInRequest = ASAuthorizationAppleIDProvider().createRequest()
+        appleSignInRequest.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [appleSignInRequest])
+        authorizationController.delegate = AppDelegate.shared
+        authorizationController.presentationContextProvider = AppDelegate.shared
+        authorizationController.performRequests()
+    }
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        guard let anchor = presentationAnchor else {
+            return ASPresentationAnchor()
+        }
+        return anchor
+    }
+}
+
+final class AppDelegate: NSObject, UIApplicationDelegate, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
+    static let shared = AppDelegate()
+    
+    private override init() {}
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        guard let anchor = UIApplication.shared.windows.first else {
+            return ASPresentationAnchor()
+        }
+        return anchor
+    }
+    
+    // Apple 로그인 성공 시,
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        let loginViewModel = LoginView().vm
+        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            print("Authorization Successful! 🎉")
+            
+            let userIndentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName
+            let email = appleIDCredential.email
+            let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
+            let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
+            
+            loginViewModel.login(certificationSubject: "APPLE", socialToken: authorizationCode!)
+        }
+    }
+    
+    // Apple 로그인 실패 시,
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Authorization Failed: \(error.localizedDescription)")
     }
 }
 

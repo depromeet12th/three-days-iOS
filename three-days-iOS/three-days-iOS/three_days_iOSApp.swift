@@ -21,7 +21,26 @@ struct three_days_iOSApp: App {
         FirebaseApp.configure()
         
         // Apple 로그인 초기화
-        
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider.getCredentialState(forUserID: "") { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                print("Authorized")
+                DispatchQueue.main.async {
+                    // ??
+                }
+                
+            case .revoked:
+                print("Revoked")
+                
+            case .notFound:
+                print("Not Found")
+                
+            default:
+                break
+            }
+            
+        }
     }
     
     var body: some Scene {

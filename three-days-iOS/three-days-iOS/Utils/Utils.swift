@@ -23,3 +23,13 @@ extension Result {
         }
     }
 }
+
+class DateUtil {
+    static func getCurrentDate(format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = format
+        
+        return dateFormatter.string(from: Date())
+    }
+}

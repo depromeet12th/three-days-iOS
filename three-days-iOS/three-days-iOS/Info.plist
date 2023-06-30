@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSContactUsageDescription</key>
+	<string>We would like to access your contacts to provide a personalized experience.</string>
+	<key>ASAuthorizationAppleIDProvider</key>
+	<string>Enable</string>
 	<key>com.apple.developer.applesignin</key>
 	<string>Default</string>
 	<key>API_URL</key>

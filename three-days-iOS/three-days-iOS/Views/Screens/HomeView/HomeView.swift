@@ -9,8 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        VStack {
-            Text("THIS IS HOME VIEW")
+        ScrollView {
+            
+            HStack {
+                Text(DateUtil.getCurrentDate(format: "M월 d일 EEEE"))
+                
+                // 알림페이지 ?? 공지사항 페이지 ?? 마이페이지 ??
+            }
+            
+            
         }
         .navigationBarHidden(true)
     }
