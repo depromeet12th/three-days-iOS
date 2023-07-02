@@ -8,6 +8,7 @@
 import SwiftUI
 import KakaoSDKAuth
 import KakaoSDKUser
+import KakaoSDKCommon
 import AuthenticationServices
 
 struct LoginView: View {
@@ -37,15 +38,39 @@ struct LoginView: View {
                 Button(action: {
                     if (UserApi.isKakaoTalkLoginAvailable()) { // 카카오톡이 설치되어 있는지 확인
                         UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in // 카카오톡으로 로그인
-                            print("OAUTHTOKEN : \(String(describing: oauthToken))")
-                            print("ERROR : \(String(describing: error))")
-                            self.vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                            if let error = error {
+                                if let sdkError = error as? KakaoSDKCommon.SdkError,
+                                   case .ClientFailed(let reason, _) = sdkError,
+                                   reason == .Cancelled {
+                                    // 사용자가 로그인을 취소한 경우 처리할 로직
+                                    print("사용자가 카카오 로그인을 취소했습니다.")
+                                } else {
+                                    // 다른 로그인 오류 처리
+                                    print("카카오 로그인 중 오류가 발생했습니다: \(error.localizedDescription)")
+                                }
+                            }
+                            else {
+                                print("OAUTHTOKEN : \(String(describing: oauthToken))")
+                                self.vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                            }
                         }
                     } else {
                         UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in // 카카오 계정으로 로그인
-                            print("OAUTHTOKEN : \(String(describing: oauthToken))")
-                            print("ERROR : \(String(describing: error))")
-                            self.vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                            if let error = error {
+                                if let sdkError = error as? KakaoSDKCommon.SdkError,
+                                   case .ClientFailed(let reason, _) = sdkError,
+                                   reason == .Cancelled {
+                                    // 사용자가 로그인을 취소한 경우 처리할 로직
+                                    print("사용자가 카카오 로그인을 취소했습니다.")
+                                } else {
+                                    // 다른 로그인 오류 처리
+                                    print("카카오 로그인 중 오류가 발생했습니다: \(error.localizedDescription)")
+                                }
+                            }
+                            else {
+                                print("OAUTHTOKEN : \(String(describing: oauthToken))")
+                                self.vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                            }
                         }
                     }
                 }) {
@@ -135,6 +160,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate, ASAuthorizationControl
             let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
             let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
             
+            print("TESTING APPLE LOGIN : identifyToken: \(identifyToken), authorizationCode: \(authorizationCode)")
             loginViewModel.login(certificationSubject: "APPLE", socialToken: authorizationCode!)
         }
     }

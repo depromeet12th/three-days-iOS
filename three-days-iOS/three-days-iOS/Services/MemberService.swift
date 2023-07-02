@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import KeychainAccess
 
+
 struct MemberService {
     private let loginURL = "\(Config.apiURL)/api/v1/members"
     private var cancellables = Set<AnyCancellable>()
@@ -25,6 +26,7 @@ struct MemberService {
         let body = ["certificationSubject": certificationSubject, "socialToken": socialToken]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         print("======= REQUEST : \(request) =======")
+        print("Request Body: \(body)")
         
         NetworkAgent.executeRequest(request, responseType: Member.self)
             .sink(receiveCompletion: { sinkCompletion in

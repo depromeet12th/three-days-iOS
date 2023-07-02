@@ -21,6 +21,6 @@ struct CustomAlertView: View {
 
 struct CustomAlertView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomAlertView(title: "삭제하시궛어요?")
+        CustomAlertView(title: "삭제하시궛어요?", message: nil)
     }
 }

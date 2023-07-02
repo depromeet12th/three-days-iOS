@@ -14,6 +14,7 @@ class MemberViewModel: ObservableObject {
     /// 로그인
     func login(certificationSubject: String, socialToken: String) {
         memberService.login(certificationSubject: certificationSubject, socialToken: socialToken) { result in
+            print("여기까지 왔ㄴㅣ 쩜쩜쩜 ?? ")
             self.loginResult = result
         }
     }
