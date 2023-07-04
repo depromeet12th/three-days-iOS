@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ASAuthorizationController
     // Apple 로그인 성공 시,
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         let loginViewModel = LoginView().vm
+        
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             print("Authorization Successful! 🎉")
             
@@ -36,8 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ASAuthorizationController
             let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
             let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
             
-            print("TESTING APPLE LOGIN : identifyToken: \(identifyToken), authorizationCode: \(authorizationCode)")
-            loginViewModel.login(certificationSubject: "APPLE", socialToken: authorizationCode!)
+            print("userIndentifier: \(userIndentifier)")
+            print("fullName: \(fullName)")
+            print("email: \(email)")
+            print("identifyToken: \(identifyToken)")
+            print("authorizationCode: \(authorizationCode)")
+
+            loginViewModel.appleLogin(certificationSubject: "APPLE", socialToken: identifyToken!, code: authorizationCode!)
+            
         }
     }
     

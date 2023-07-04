@@ -19,6 +19,13 @@ class MemberViewModel: ObservableObject {
         }
     }
     
+    /// 애플 로그인
+    func appleLogin(certificationSubject: String, socialToken: String, code: String) {
+        memberService.appleLogin(certificationSubject: certificationSubject, socialToken: socialToken, code: code) { result in
+            self.loginResult = result
+        }
+    }
+    
     /// Token 저장
     func setTokens(accessToken: String, refreshToken: String) {
         memberService.setTokenToKeychain(accessToken: accessToken, refreshToken: refreshToken)
