@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import Combine
 
 /// Result 확장
@@ -24,6 +25,7 @@ extension Result {
     }
 }
 
+/// 현재 날짜 가져오기 (원하는 형식에 맞게)
 class DateUtil {
     static func getCurrentDate(format: String) -> String {
         let dateFormatter = DateFormatter()
@@ -32,4 +34,12 @@ class DateUtil {
         
         return dateFormatter.string(from: Date())
     }
+}
+
+/// deviceID 가져오기
+func getDeviceID() -> String? {
+    if let uuid = UIDevice.current.identifierForVendor?.uuidString {
+        return uuid
+    }
+    return nil
 }

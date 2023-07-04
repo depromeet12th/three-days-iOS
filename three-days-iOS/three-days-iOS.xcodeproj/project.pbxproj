@@ -20,6 +20,8 @@
 		0B76B57F2A1C511100C45600 /* SUIT-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5762A1C511100C45600 /* SUIT-ExtraBold.ttf */; };
 		0B76B5802A1C511100C45600 /* SUIT-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5772A1C511100C45600 /* SUIT-ExtraLight.ttf */; };
 		0B76B5812A1C511100C45600 /* SUIT-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5782A1C511100C45600 /* SUIT-Heavy.ttf */; };
+		0B7CCF162A52632400CE6807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7CCF152A52632400CE6807 /* AppDelegate.swift */; };
+		0B7CCF182A526F5B00CE6807 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7CCF172A526F5B00CE6807 /* KeychainManager.swift */; };
 		0BBA36A22A1C58DA0021186C /* BasicButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA36A12A1C58DA0021186C /* BasicButtonStyle.swift */; };
 		0BD04AA82A43D8AA00CD0ED1 /* MemberService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD04AA72A43D8AA00CD0ED1 /* MemberService.swift */; };
 		0BD37A662A1D9A8C005F5190 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD37A652A1D9A8C005F5190 /* LoginView.swift */; };
@@ -56,6 +58,8 @@
 		0B76B5772A1C511100C45600 /* SUIT-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-ExtraLight.ttf"; sourceTree = "<group>"; };
 		0B76B5782A1C511100C45600 /* SUIT-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SUIT-Heavy.ttf"; sourceTree = "<group>"; };
 		0B76B5842A1C535C00C45600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0B7CCF152A52632400CE6807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0B7CCF172A526F5B00CE6807 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		0B99131E2A281D1600C30ADB /* three-days-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "three-days-iOS.entitlements"; sourceTree = "<group>"; };
 		0BBA36A12A1C58DA0021186C /* BasicButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButtonStyle.swift; sourceTree = "<group>"; };
 		0BD04AA72A43D8AA00CD0ED1 /* MemberService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberService.swift; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 		A8A2D4142A35A03000399B62 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0B7CCF172A526F5B00CE6807 /* KeychainManager.swift */,
 				A890E89B2A3EF7CD0051A5E9 /* NetworkAgent.swift */,
 				A87CB08B2A3F06CB00ADF0B1 /* Utils.swift */,
 			);
@@ -271,6 +276,7 @@
 				0B99131E2A281D1600C30ADB /* three-days-iOS.entitlements */,
 				0B76B5842A1C535C00C45600 /* Info.plist */,
 				A8B34A602A4078BA00F936A4 /* GoogleService-Info.plist */,
+				0B7CCF152A52632400CE6807 /* AppDelegate.swift */,
 				A8D13F732A176BA600159864 /* three_days_iOSApp.swift */,
 				0B76B5642A1C3C6200C45600 /* Models */,
 				0B76B5652A1C3C6F00C45600 /* Views */,
@@ -422,6 +428,7 @@
 				0BD37A662A1D9A8C005F5190 /* LoginView.swift in Sources */,
 				0BD04AA82A43D8AA00CD0ED1 /* MemberService.swift in Sources */,
 				0B76B56C2A1C477E00C45600 /* OnboardingView.swift in Sources */,
+				0B7CCF182A526F5B00CE6807 /* KeychainManager.swift in Sources */,
 				A87CB08F2A3F0BEF00ADF0B1 /* HomeView.swift in Sources */,
 				A87CB08C2A3F06CB00ADF0B1 /* Utils.swift in Sources */,
 				A84AC4422A29E83600AE6264 /* Config.swift in Sources */,
@@ -430,6 +437,7 @@
 				A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */,
 				0BF80BA92A4E9ACC0097EC8F /* HabitViewModel.swift in Sources */,
 				0BD37A682A1DAC0A005F5190 /* Member.swift in Sources */,
+				0B7CCF162A52632400CE6807 /* AppDelegate.swift in Sources */,
 				0BF80BAB2A4E9DD90097EC8F /* HabitService.swift in Sources */,
 				0BBA36A22A1C58DA0021186C /* BasicButtonStyle.swift in Sources */,
 				A8A2D4102A34922800399B62 /* MemberViewModel.swift in Sources */,
@@ -564,10 +572,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "three-days-iOS/three-days-iOS.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"three-days-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 5B94TFMJJ4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "three-days-iOS/Info.plist";
@@ -585,6 +593,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.depromeet.three-days-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = threeDaysProvisioning;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -598,10 +607,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "three-days-iOS/three-days-iOS.entitlements";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"three-days-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = 5B94TFMJJ4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "three-days-iOS/Info.plist";
@@ -619,6 +628,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.depromeet.three-days-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = threeDaysProvisioning;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -12,4 +12,6 @@ target 'three-days-iOS' do
   pod 'FirebaseAnalytics'
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
+  pod 'Firebase/Messaging'
+  pod 'Firebase'  
 end

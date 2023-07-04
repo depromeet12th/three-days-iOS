@@ -19,3 +19,10 @@ struct Token: Decodable {
     var accessToken: String
     var refreshToken: String
 }
+
+struct FCM: Decodable {
+    var id: Int64
+    var memberId: Int
+    var identificationKey: String
+    var fcmToken: String
+}

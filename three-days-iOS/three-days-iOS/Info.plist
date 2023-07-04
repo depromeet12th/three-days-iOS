@@ -2,21 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSContactUsageDescription</key>
-	<string>We would like to access your contacts to provide a personalized experience.</string>
-	<key>ASAuthorizationAppleIDProvider</key>
-	<string>Enable</string>
-	<key>com.apple.developer.applesignin</key>
-	<string>Default</string>
 	<key>API_URL</key>
 	<string>${API_URL}</string>
-	<key>KAKAO_APP_KEY</key>
-	<string>${KAKAO_APP_KEY}</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>kakaokompassauth</string>
-		<string>kakaolink</string>
-	</array>
+	<key>ASAuthorizationAppleIDProvider</key>
+	<string>Enable</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -28,6 +17,15 @@
 			</array>
 		</dict>
 	</array>
+	<key>KAKAO_APP_KEY</key>
+	<string>${KAKAO_APP_KEY}</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+	</array>
+	<key>NSContactUsageDescription</key>
+	<string>We would like to access your contacts to provide a personalized experience.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SUIT-Bold.ttf</string>
@@ -40,5 +38,12 @@
 		<string>SUIT-SemiBold.ttf</string>
 		<string>SUIT-Thin.ttf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+	<key>com.apple.developer.applesignin</key>
+	<string>Default</string>
 </dict>
 </plist>

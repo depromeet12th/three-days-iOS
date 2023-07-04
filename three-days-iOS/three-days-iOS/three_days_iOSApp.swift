@@ -13,12 +13,11 @@ import AuthenticationServices
 
 @main
 struct three_days_iOSApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     init() {
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: Config.kakaoAppKey)
-        
-        // Firebase 초기화
-        FirebaseApp.configure()
         
         // Apple 로그인 초기화
         let appleIDProvider = ASAuthorizationAppleIDProvider()

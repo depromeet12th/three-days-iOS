@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 import KeychainAccess
-
+import FirebaseMessaging
 
 struct MemberService {
-    private let loginURL = "\(Config.apiURL)/api/v1/members"
     private var cancellables = Set<AnyCancellable>()
     
     /// 멤버 추가
     mutating func login(certificationSubject: String, socialToken: String, completion: @escaping (Result<Member, Error>) -> Void) {
+        let loginURL = "\(Config.apiURL)/api/v1/members"
         let url = URL(string: loginURL)!
         var request = URLRequest(url: url)
         
@@ -77,4 +77,35 @@ struct MemberService {
         }
         return false
     }
+    
+    /// FCM 토큰 등록
+    mutating func registerFCMToken(fcmToken: String, identificationKey: String, completion: @escaping (Result<FCM, Error>) -> Void) {
+        let fcmURL = "\(Config.apiURL)/api/v1/clients"
+        let url = URL(string: fcmURL)!
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let body = ["fcmToken": fcmToken, "identificationKey": identificationKey]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+        print("======= REQUEST : \(request) =======")
+        print("Request Body: \(body)")
+        
+        NetworkAgent.executeRequest(request, responseType: FCM.self)
+            .sink(receiveCompletion: { sinkCompletion in
+                switch sinkCompletion { // 네트워크 실패
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("NETWORK FAILED: \(error.localizedDescription)")
+                    completion(.failure(error))
+                }
+            }, receiveValue: { response in // 네트워크 성공
+                completion(.success(response))
+            })
+            .store(in: &cancellables)
+    }
+    
 }

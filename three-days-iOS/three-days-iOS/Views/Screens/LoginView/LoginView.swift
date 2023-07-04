@@ -136,41 +136,6 @@ struct LoginView: View {
     }
 }
 
-final class AppDelegate: NSObject, UIApplicationDelegate, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
-    static let shared = AppDelegate()
-    
-    private override init() {}
-    
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        guard let anchor = UIApplication.shared.windows.first else {
-            return ASPresentationAnchor()
-        }
-        return anchor
-    }
-    
-    // Apple 로그인 성공 시,
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        let loginViewModel = LoginView().vm
-        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            print("Authorization Successful! 🎉")
-            
-            let userIndentifier = appleIDCredential.user
-            let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
-            let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
-            let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
-            
-            print("TESTING APPLE LOGIN : identifyToken: \(identifyToken), authorizationCode: \(authorizationCode)")
-            loginViewModel.login(certificationSubject: "APPLE", socialToken: authorizationCode!)
-        }
-    }
-    
-    // Apple 로그인 실패 시,
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print("Authorization Failed: \(error.localizedDescription)")
-    }
-}
-
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
