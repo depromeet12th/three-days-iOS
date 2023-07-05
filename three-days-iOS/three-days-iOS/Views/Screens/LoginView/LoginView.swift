@@ -51,7 +51,7 @@ struct LoginView: View {
                             }
                             else {
                                 print("OAUTHTOKEN : \(String(describing: oauthToken))")
-                                self.vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                                self.vm.kakaoLogin(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
                             }
                         }
                     } else {
@@ -69,7 +69,7 @@ struct LoginView: View {
                             }
                             else {
                                 print("OAUTHTOKEN : \(String(describing: oauthToken))")
-                                self.vm.login(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
+                                self.vm.kakaoLogin(certificationSubject: "KAKAO", socialToken: oauthToken!.accessToken)
                             }
                         }
                     }

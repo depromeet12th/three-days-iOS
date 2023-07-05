@@ -11,17 +11,16 @@ class MemberViewModel: ObservableObject {
     @Published var loginResult: Result<Member, Error>? = nil
     var memberService = MemberService()
     
-    /// 로그인
-    func login(certificationSubject: String, socialToken: String) {
-        memberService.login(certificationSubject: certificationSubject, socialToken: socialToken) { result in
-            print("여기까지 왔ㄴㅣ 쩜쩜쩜 ?? ")
+    /// 카카오 로그인
+    func kakaoLogin(certificationSubject: String, socialToken: String) {
+        memberService.kakaoLogin(certificationSubject: certificationSubject, socialToken: socialToken) { result in
             self.loginResult = result
         }
     }
     
     /// 애플 로그인
-    func appleLogin(certificationSubject: String, socialToken: String, code: String) {
-        memberService.appleLogin(certificationSubject: certificationSubject, socialToken: socialToken, code: code) { result in
+    func appleLogin(certificationSubject: String, socialToken: String, code: String, firstName: String, lastName: String, email: String) {
+        memberService.appleLogin(certificationSubject: certificationSubject, socialToken: socialToken, code: code, firstName: firstName, lastName: lastName, email: email) { result in
             self.loginResult = result
         }
     }

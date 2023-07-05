@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ASAuthorizationController
         
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             print("Authorization Successful! 🎉")
-            
+    
             let userIndentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
             let email = appleIDCredential.email
@@ -38,13 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ASAuthorizationController
             let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
             
             print("userIndentifier: \(userIndentifier)")
-            print("fullName: \(fullName)")
-            print("email: \(email)")
-            print("identifyToken: \(identifyToken)")
-            print("authorizationCode: \(authorizationCode)")
-
-            loginViewModel.appleLogin(certificationSubject: "APPLE", socialToken: identifyToken!, code: authorizationCode!)
+            print("fullName: \(fullName?.givenName ?? "")  \(fullName?.familyName ?? "")")
+            print("email: \(email ?? "")")
+            print("identifyToken: \(identifyToken ?? "")")
+            print("authorizationCode: \(authorizationCode ?? "")")
             
+            // TODO: 첫 로그인 시도 시, UserDefaults에 fullName · email 저장하기
+            loginViewModel.appleLogin(certificationSubject: "APPLE", socialToken: identifyToken ?? "", code: authorizationCode ?? "", firstName: fullName?.givenName ?? "", lastName: fullName?.familyName ?? "", email: email ?? "")
         }
     }
     
