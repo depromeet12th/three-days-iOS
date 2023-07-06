@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import KeychainAccess
 import FirebaseMessaging
+import CryptoKit
 
 struct MemberService {
     private var cancellables = Set<AnyCancellable>()
@@ -38,16 +39,20 @@ struct MemberService {
                     completion(.failure(error))
                 }
             }, receiveValue: { response in // 네트워크 성공
+//                print(response.1)   // Message
+//                print(response.2)   // Code
                 completion(.success(response))
             })
             .store(in: &cancellables)
     }
     
     /// 멤버 추가 (Apple 로그인)
-    mutating func appleLogin(certificationSubject: String, socialToken: String, code: String, firstName: String, lastName: String, email: String, completion: @escaping (Result<Member, Error>) -> Void) {
+    mutating func appleLogin(certificationSubject: String, socialToken: String, code: String, firstName: String, lastName: String, email: String, nonce: String, completion: @escaping (Result<Member, Error>) -> Void) {
         let loginURL = "\(Config.apiURL)/api/v1/members/apple"
         let url = URL(string: loginURL)!
         var request = URLRequest(url: url)
+        
+        
         
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -55,12 +60,12 @@ struct MemberService {
         
         
         let name = ["firstName": firstName, "lastName": lastName]
-        let user = ["email": "wjddls980912@naver.com", "name": name] as [String : Any]
+        let user = ["email": email, "name": name] as [String : Any]
         let body: [String: Any] = [
             "certificationSubject": certificationSubject,
             "socialToken": socialToken,
             "code": code,
-            "nonce": getDeviceID() ?? "",
+            "nonce": nonce,
             "user": user
         ]
         
@@ -78,6 +83,8 @@ struct MemberService {
                     completion(.failure(error))
                 }
             }, receiveValue: { response in // 네트워크 성공
+//                print(response.1)   // Message
+//                print(response.2)   // Code
                 completion(.success(response))
             })
             .store(in: &cancellables)
@@ -143,6 +150,9 @@ struct MemberService {
                     completion(.failure(error))
                 }
             }, receiveValue: { response in // 네트워크 성공
+//                print(response.1)   // Message
+//                print(response.2)   // Code
+//
                 completion(.success(response))
             })
             .store(in: &cancellables)

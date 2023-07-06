@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ASAuthorizationController
             let email = appleIDCredential.email
             let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
             let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
+            let nonce = getDeviceID() ?? ""
             
             print("userIndentifier: \(userIndentifier)")
             print("fullName: \(fullName?.givenName ?? "")  \(fullName?.familyName ?? "")")
@@ -44,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ASAuthorizationController
             print("authorizationCode: \(authorizationCode ?? "")")
             
             // TODO: 첫 로그인 시도 시, UserDefaults에 fullName · email 저장하기
-            loginViewModel.appleLogin(certificationSubject: "APPLE", socialToken: identifyToken ?? "", code: authorizationCode ?? "", firstName: fullName?.givenName ?? "", lastName: fullName?.familyName ?? "", email: email ?? "")
+            loginViewModel.appleLogin(certificationSubject: "APPLE", socialToken: identifyToken ?? "", code: authorizationCode ?? "", firstName: fullName?.givenName ?? "", lastName: fullName?.familyName ?? "", email: email ?? "", nonce: nonce)
         }
     }
     

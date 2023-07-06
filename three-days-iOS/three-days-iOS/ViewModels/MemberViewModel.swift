@@ -19,8 +19,8 @@ class MemberViewModel: ObservableObject {
     }
     
     /// 애플 로그인
-    func appleLogin(certificationSubject: String, socialToken: String, code: String, firstName: String, lastName: String, email: String) {
-        memberService.appleLogin(certificationSubject: certificationSubject, socialToken: socialToken, code: code, firstName: firstName, lastName: lastName, email: email) { result in
+    func appleLogin(certificationSubject: String, socialToken: String, code: String, firstName: String, lastName: String, email: String, nonce: String) {
+        memberService.appleLogin(certificationSubject: certificationSubject, socialToken: socialToken, code: code, firstName: firstName, lastName: lastName, email: email, nonce: nonce) { result in
             self.loginResult = result
         }
     }

@@ -121,6 +121,7 @@ struct LoginView: View {
     func AppleSignIn() {
         let appleSignInRequest = ASAuthorizationAppleIDProvider().createRequest()
         appleSignInRequest.requestedScopes = [.fullName, .email]
+        appleSignInRequest.nonce = getDeviceID()
         
         let authorizationController = ASAuthorizationController(authorizationRequests: [appleSignInRequest])
         authorizationController.delegate = AppDelegate.shared
