@@ -8,16 +8,32 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var vm = HabitViewModel()
+    
     var body: some View {
-        ScrollView {
-            
+        NavigationView {
+            /// 날짜 및 마이페이지 이동
             HStack {
                 Text(DateUtil.getCurrentDate(format: "M월 d일 EEEE"))
                 
-                // 알림페이지 ?? 공지사항 페이지 ?? 마이페이지 ??
+                // TODO: 마이페이지로 이동 (EmptyView -> MyPageView)
+                NavigationLink(destination: EmptyView()) {
+                    
+                }
             }
             
-            
+            ScrollView {
+                if vm.habits.isEmpty {
+                    // TODO: 습관 생성 페이지로 이동 (EmptyView -> HabitCreateView)
+                    NavigationLink(destination: EmptyView()) {
+                        
+                    }
+                } else {
+//                    ForEach(vm.habits) { habit in
+//
+//                    }
+                }
+            }
         }
         .navigationBarHidden(true)
     }

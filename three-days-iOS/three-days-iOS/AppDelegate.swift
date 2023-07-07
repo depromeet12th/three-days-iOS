@@ -27,25 +27,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ASAuthorizationController
     // Apple 로그인 성공 시,
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         let loginViewModel = LoginView().vm
+        let userDafults = UserDefaults.standard
         
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
             print("Authorization Successful! 🎉")
     
             let userIndentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
-            let email = appleIDCredential.email
-            let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8)
-            let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)
+            var firstName = fullName?.givenName ?? "", lastName = fullName?.familyName ?? ""
+            var email = appleIDCredential.email ?? ""
+            let identifyToken = String(data: appleIDCredential.identityToken!, encoding: .utf8) ?? ""
+            let authorizationCode = String(data: appleIDCredential.authorizationCode!, encoding: .utf8)  ?? ""
             let nonce = getDeviceID() ?? ""
             
-            print("userIndentifier: \(userIndentifier)")
-            print("fullName: \(fullName?.givenName ?? "")  \(fullName?.familyName ?? "")")
-            print("email: \(email ?? "")")
-            print("identifyToken: \(identifyToken ?? "")")
-            print("authorizationCode: \(authorizationCode ?? "")")
+            /// 애플 로그인은 첫 시도시에만 이메일과 이름을 제공 (두번째부턴 UserDefaults에 저장된 값 사용)
+            // UserDafaults에 값 저장하기
+            if firstName != "" && lastName != "" && email != "" {
+                userDafults.set(firstName, forKey: "firstName")
+                userDafults.set(lastName, forKey: "lastName")
+                userDafults.set(email, forKey: "email")
+            }
             
-            // TODO: 첫 로그인 시도 시, UserDefaults에 fullName · email 저장하기
-            loginViewModel.appleLogin(certificationSubject: "APPLE", socialToken: identifyToken ?? "", code: authorizationCode ?? "", firstName: fullName?.givenName ?? "", lastName: fullName?.familyName ?? "", email: email ?? "", nonce: nonce)
+            // UserDafaults에서 값 가져오기
+            if firstName == "" || lastName == "" || email == "" {
+                firstName = userDafults.string(forKey: "firstName") ?? ""
+                lastName = userDafults.string(forKey: "lastName") ?? ""
+                email = userDafults.string(forKey: "email") ?? ""
+            }
+            
+            print("userIndentifier: \(userIndentifier)")
+            print("fullName: \(firstName) \(lastName)")
+            print("email: \(email)")
+            print("identifyToken: \(identifyToken)")
+            print("authorizationCode: \(authorizationCode)")
+            
+            loginViewModel.appleLogin(certificationSubject: "APPLE", socialToken: identifyToken, code: authorizationCode, firstName: firstName, lastName: lastName, email: email, nonce: nonce)
+//                .onReceive(loginViewModel.loginResult?.publisher) { result in
+//                    switch result {
+//                    case .success(let member): break
+//
+//                    }
+//                }
+            
         }
     }
     
