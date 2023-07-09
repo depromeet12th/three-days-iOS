@@ -62,13 +62,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ASAuthorizationController
             print("authorizationCode: \(authorizationCode)")
             
             loginViewModel.appleLogin(certificationSubject: "APPLE", socialToken: identifyToken, code: authorizationCode, firstName: firstName, lastName: lastName, email: email, nonce: nonce)
-//                .onReceive(loginViewModel.loginResult?.publisher) { result in
-//                    switch result {
-//                    case .success(let member): break
-//
-//                    }
-//                }
-            
         }
     }
     

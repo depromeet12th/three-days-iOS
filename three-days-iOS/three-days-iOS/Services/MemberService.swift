@@ -35,12 +35,10 @@ struct MemberService {
                 case .finished:
                     break
                 case .failure(let error):
-                    print("NETWORK FAILED: \(error.localizedDescription)")
+                    print("💥 NETWORK FAILED: \(error.localizedDescription)")
                     completion(.failure(error))
                 }
             }, receiveValue: { response in // 네트워크 성공
-//                print(response.1)   // Message
-//                print(response.2)   // Code
                 completion(.success(response))
             })
             .store(in: &cancellables)
@@ -52,12 +50,9 @@ struct MemberService {
         let url = URL(string: loginURL)!
         var request = URLRequest(url: url)
         
-        
-        
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
         
         let name = ["firstName": firstName, "lastName": lastName]
         let user = ["email": email, "name": name] as [String : Any]
@@ -79,12 +74,10 @@ struct MemberService {
                 case .finished:
                     break
                 case .failure(let error):
-                    print("NETWORK FAILED: \(error.localizedDescription)")
+                    print("💥 NETWORK FAILED: \(error.localizedDescription)")
                     completion(.failure(error))
                 }
             }, receiveValue: { response in // 네트워크 성공
-//                print(response.1)   // Message
-//                print(response.2)   // Code
                 completion(.success(response))
             })
             .store(in: &cancellables)
@@ -150,9 +143,6 @@ struct MemberService {
                     completion(.failure(error))
                 }
             }, receiveValue: { response in // 네트워크 성공
-//                print(response.1)   // Message
-//                print(response.2)   // Code
-//
                 completion(.success(response))
             })
             .store(in: &cancellables)

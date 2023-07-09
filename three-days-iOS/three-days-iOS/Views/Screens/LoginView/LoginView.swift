@@ -15,7 +15,7 @@ struct LoginView: View {
     @ObservedObject var vm = MemberViewModel()
     
     @State private var presentationAnchor: ASPresentationAnchor?
-    @State private var isLoginnedIn: Bool = false
+//    @State private var isLoginnedIn: Bool = false
     
     var body: some View {
         NavigationView {
@@ -83,16 +83,6 @@ struct LoginView: View {
                     }
                 }
                 .buttonStyle(BasicButtonStyle(backgroundColor: Color("kakaoYellow"), fontColor: .black, customFont: "SUIT-Bold"))
-                .onReceive(vm.loginResult.publisher) { result in
-                    switch result {
-                    case .success(let member): // 로그인 성공
-                        self.vm.setTokens(accessToken: member.token.accessToken, refreshToken: member.token.refreshToken)
-                        self.isLoginnedIn.toggle()
-                    case .failure(let error): // 로그인 실패
-                        print("Failed to Kakao Login: \(error)")
-                    }
-                }
-                
                 
                 // MARK: Apple Login
                 Button(action: {
@@ -110,7 +100,7 @@ struct LoginView: View {
                 .buttonStyle(BasicButtonStyle(customFont: "SUIT-Bold"))
                 .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
                 
-                NavigationLink(destination: LoginCompleteView(), isActive: $isLoginnedIn) {
+                NavigationLink(destination: LoginCompleteView(), isActive: $vm.isLoggined) {
                     EmptyView()
                 }
                 .hidden()
