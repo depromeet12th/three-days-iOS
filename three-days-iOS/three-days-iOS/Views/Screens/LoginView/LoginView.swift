@@ -13,9 +13,9 @@ import AuthenticationServices
 
 struct LoginView: View {
     @ObservedObject var vm = MemberViewModel()
+    @State private var isLoggined: Bool = UserDefaults.standard.bool(forKey: UserDefaults.isLogginedKey)
     
     @State private var presentationAnchor: ASPresentationAnchor?
-//    @State private var isLoginnedIn: Bool = false
     
     var body: some View {
         NavigationView {
@@ -100,11 +100,15 @@ struct LoginView: View {
                 .buttonStyle(BasicButtonStyle(customFont: "SUIT-Bold"))
                 .padding(EdgeInsets(top: 12, leading: 0, bottom: 0, trailing: 0))
                 
-                NavigationLink(destination: LoginCompleteView(), isActive: $vm.isLoggined) {
+                /// 로그인 성공 시 (isLoggined 값 true) LoginCompleteView로 이동
+                NavigationLink(destination: LoginCompleteView(), isActive: $isLoggined) {
                     EmptyView()
                 }
                 .hidden()
             }
+        }
+        .onReceive(vm.$isLoggined) { loginStatus in
+            isLoggined = loginStatus
         }
     }
     

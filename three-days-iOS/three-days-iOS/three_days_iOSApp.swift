@@ -38,7 +38,6 @@ struct three_days_iOSApp: App {
             default:
                 break
             }
-            
         }
     }
     

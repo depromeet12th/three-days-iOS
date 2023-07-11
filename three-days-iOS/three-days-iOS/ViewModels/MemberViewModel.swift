@@ -16,36 +16,36 @@ class MemberViewModel: ObservableObject {
     func kakaoLogin(certificationSubject: String, socialToken: String) {
         memberService.kakaoLogin(certificationSubject: certificationSubject, socialToken: socialToken) { result in
             switch result {
-            case .success(_):
-                self.isLoggined = true
+            case .success(let member):
+                UserDefaults.standard.set(true, forKey: UserDefaults.isLogginedKey)
+                self.memberService.setTokenToKeychain(accessToken: member.token.accessToken, refreshToken: member.token.accessToken)
             case .failure(_):
-                self.isLoggined = false
+                UserDefaults.standard.set(false, forKey: UserDefaults.isLogginedKey)
             }
+            UserDefaults.standard.synchronize()
+            
             self.member = result
+            self.isLoggined = UserDefaults.standard.bool(forKey: UserDefaults.isLogginedKey)
         }
     }
     
     /// 애플 로그인
     func appleLogin(certificationSubject: String, socialToken: String, code: String, firstName: String, lastName: String, email: String, nonce: String) {
+        print("Apple Login ... - in MemberViewModel")
         memberService.appleLogin(certificationSubject: certificationSubject, socialToken: socialToken, code: code, firstName: firstName, lastName: lastName, email: email, nonce: nonce) { result in
             switch result {
-            case .success(_):
-                self.isLoggined = true
+            case .success(let member):
+                print("MemberViewModel Apple Login Success")
+                UserDefaults.standard.set(true, forKey: UserDefaults.isLogginedKey)
+                self.memberService.setTokenToKeychain(accessToken: member.token.accessToken, refreshToken: member.token.refreshToken)
             case .failure(_):
-                self.isLoggined = false
+                print("MemberViewModel Apple Login Failure")
+                UserDefaults.standard.set(false, forKey: UserDefaults.isLogginedKey)
             }
+            UserDefaults.standard.synchronize()
+            
             self.member = result
+            self.isLoggined = UserDefaults.standard.bool(forKey: UserDefaults.isLogginedKey)
         }
     }
-    
-    /// Token 저장
-    func setTokens(accessToken: String, refreshToken: String) {
-        memberService.setTokenToKeychain(accessToken: accessToken, refreshToken: refreshToken)
-    }
-    
-    /// Token 가져오기
-    func getTokens() {
-        
-    }
-    
 }

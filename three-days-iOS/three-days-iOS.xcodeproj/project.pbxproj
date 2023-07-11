@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B1CE5902A5CF01E001BDB1D /* HabitCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */; };
 		0B373C602A1EFCBD003152A1 /* LoginCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */; };
 		0B76B5672A1C3CB400C45600 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5662A1C3CB400C45600 /* Color.xcassets */; };
 		0B76B5692A1C3E2E00C45600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateView.swift; sourceTree = "<group>"; };
 		0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCompleteView.swift; sourceTree = "<group>"; };
 		0B76B5662A1C3CB400C45600 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				A87CB08E2A3F0BEF00ADF0B1 /* HomeView.swift */,
+				0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				0B7CCF182A526F5B00CE6807 /* KeychainManager.swift in Sources */,
 				A87CB08F2A3F0BEF00ADF0B1 /* HomeView.swift in Sources */,
 				A87CB08C2A3F06CB00ADF0B1 /* Utils.swift in Sources */,
+				0B1CE5902A5CF01E001BDB1D /* HabitCreateView.swift in Sources */,
 				A84AC4422A29E83600AE6264 /* Config.swift in Sources */,
 				A890E89C2A3EF7CD0051A5E9 /* NetworkAgent.swift in Sources */,
 				A8D13F762A176BA600159864 /* MainView.swift in Sources */,

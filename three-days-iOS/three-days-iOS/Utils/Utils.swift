@@ -43,3 +43,7 @@ func getDeviceID() -> String? {
     }
     return nil
 }
+
+extension UserDefaults {
+    static let isLogginedKey = "isLoggined"
+}
