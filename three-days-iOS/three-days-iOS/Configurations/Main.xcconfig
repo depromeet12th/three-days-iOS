@@ -1,0 +1,11 @@
+//
+//  Main.xcconfig
+//  three-days-iOS
+//
+//  Created by 최정인 on 2023/06/10.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Authorization.xcconfig"

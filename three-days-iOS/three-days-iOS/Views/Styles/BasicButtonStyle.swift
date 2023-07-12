@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct BasicButtonStyle: ButtonStyle {
-    let backgroundColor = Color("mainColor")
-    let fontColor: Color = .white
+    var backgroundColor = Color("mainColor")
+    var fontColor: Color = .white
+    var customFont: String = "SUIT-SemiBold"
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(width: 320, height: 56)
             .background(backgroundColor)
             .cornerRadius(15)
-            .font(.custom("SUIT-SemiBold", size: 16))
+            .font(.custom(customFont, size: 16))
             .foregroundColor(fontColor)
     }
 }
