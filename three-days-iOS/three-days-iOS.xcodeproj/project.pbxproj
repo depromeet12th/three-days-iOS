@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B1CE5902A5CF01E001BDB1D /* HabitCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */; };
 		0B373C602A1EFCBD003152A1 /* LoginCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */; };
+		0B6214322A5E481C001A78D2 /* Mate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6214312A5E481C001A78D2 /* Mate.swift */; };
 		0B76B5672A1C3CB400C45600 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5662A1C3CB400C45600 /* Color.xcassets */; };
 		0B76B5692A1C3E2E00C45600 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */; };
 		0B76B56C2A1C477E00C45600 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B76B56B2A1C477E00C45600 /* OnboardingView.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateView.swift; sourceTree = "<group>"; };
 		0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCompleteView.swift; sourceTree = "<group>"; };
+		0B6214312A5E481C001A78D2 /* Mate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mate.swift; sourceTree = "<group>"; };
 		0B76B5662A1C3CB400C45600 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		0B76B5682A1C3E2E00C45600 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B76B56B2A1C477E00C45600 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				0BD37A672A1DAC0A005F5190 /* Member.swift */,
 				0BF80BAC2A4EA0B20097EC8F /* Habit.swift */,
+				0B6214312A5E481C001A78D2 /* Mate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				0BD04AA82A43D8AA00CD0ED1 /* MemberService.swift in Sources */,
 				0B76B56C2A1C477E00C45600 /* OnboardingView.swift in Sources */,
 				0B7CCF182A526F5B00CE6807 /* KeychainManager.swift in Sources */,
+				0B6214322A5E481C001A78D2 /* Mate.swift in Sources */,
 				A87CB08F2A3F0BEF00ADF0B1 /* HomeView.swift in Sources */,
 				A87CB08C2A3F06CB00ADF0B1 /* Utils.swift in Sources */,
 				0B1CE5902A5CF01E001BDB1D /* HabitCreateView.swift in Sources */,
