@@ -12,6 +12,7 @@ struct HabitCreateView: View {
     @State var isAlarmOn:Bool = false
     @State var weekdays:[Bool] = Array(repeating: false, count: 7)
     let weekdaysString:[String] = ["월", "화", "수", "목", "금", "토", "일"]
+    let colorArray:[String] = ["GREEN", "BLUE", "PINK"]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,13 +36,28 @@ struct HabitCreateView: View {
                                     .font(.system(size: 25))
                             }
                         }
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 8))
                         
                         // 습관 title
-                        ZStack {
-                            TextField("어떤 습관을 원하시나요?", text: $vm.habit.title)
+                        ZStack(alignment: .leading) {
+                            Rectangle()
+                                .fill(Color("gray100"))
                                 .frame(width: 282, height: 45)
-                                .background(Color("gray100"))
                                 .cornerRadius(10)
+                            
+                            HStack {
+                                TextField("어떤 습관을 원하시나요?", text: $vm.habit.title)
+                                    .frame(width: 210, height: 45)
+                                    .padding(EdgeInsets(top: 13, leading: 16, bottom: 13, trailing: 8))
+                                    .onChange(of: vm.habit.title) { habitTitle in
+                                        if vm.habit.title.count >= 15 { // 습관명 길이가 15자 이상이 되면,
+                                            vm.habit.title = String(habitTitle.prefix(15))
+                                        }
+                                    }
+                                
+                                Text("\(vm.habit.title.count)/15")
+                                    .font(.system(size: 12))
+                            }
                         }
                     }
                 }
@@ -79,18 +95,36 @@ struct HabitCreateView: View {
             /// 셀프 잔소리 On / Off
             Group {
                 VStack(alignment: .leading) {
-                    Toggle(isOn: self.$isAlarmOn) {
+                    
+                    HStack {
                         Text("셀프 잔소리")
+                        
+                        Spacer()
+
+                        Toggle(isOn: self.$isAlarmOn) {
+                            Text("셀프 잔소리")
+                        }
+                        .labelsHidden()
                     }
                     
                     if isAlarmOn {
-                        // ??
+                        // TimePicker
                         
                         // 한마디
-                        TextField("습관을 잘 실천하기 위해서 본인에게 자극의 한마디를 써볼까요?", text: $vm.habit.notification.contents)
-                            .frame(width: 335, height: 78)
-                            .background(Color("gray100"))
-                            .cornerRadius(10)
+//                        TextField("습관을 잘 실천하기 위해서 본인에게 자극의 한마디를 써볼까요?", text: $vm.habit.notification.contents)
+//                            .frame(width: 335, height: 78)
+//                            .background(Color("gray100"))
+//                            .cornerRadius(10)
+                        
+                        // 한마디
+                        ZStack {
+                            Rectangle()
+                                .fill(Color("gray100"))
+                                .frame(width: 335, height: 78)
+                                .cornerRadius(10)
+                            
+                            TextField("", text: $vm.habit.notification.contents)
+                        }
                     }
                     
                 }
@@ -102,54 +136,21 @@ struct HabitCreateView: View {
                     Text("색상")
                     
                     HStack {
-                        // 초 파 분
-                        Button(action: {
-                            vm.habit.color = "GREEN"
-                        }) {
-                            ZStack {
-                                Circle()
-                                    .fill(Color("green50"))
-                                    .frame(width: 40)
-                                
-                                if vm.habit.color == "GREEN" {
-                                    Image("ic_check_mono")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 24)
-                                }
-                            }
-                        }
-                        
-                        Button(action: {
-                            vm.habit.color = "BLUE"
-                        }) {
-                            ZStack {
-                                Circle()
-                                    .fill(Color("blue50"))
-                                    .frame(width: 40)
-                                
-                                if vm.habit.color == "BLUE" {
-                                    Image("ic_check_mono")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 24)
-                                }
-                            }
-                        }
-                        
-                        Button(action: {
-                            vm.habit.color = "PINK"
-                        }) {
-                            ZStack {
-                                Circle()
-                                    .fill(Color("pink50"))
-                                    .frame(width: 40)
-                                
-                                if vm.habit.color == "PINK" {
-                                    Image("ic_check_mono")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 24)
+                        ForEach(0..<3, id: \.self) { idx in
+                            Button(action: {
+                                vm.habit.color = colorArray[idx]
+                            }) {
+                                ZStack {
+                                    Circle()
+                                        .fill(Color("\(colorArray[idx].lowercased())50"))
+                                        .frame(width: 40)
+                                    
+                                    if vm.habit.color == colorArray[idx] {
+                                        Image("ic_check_mono")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 24)
+                                    }
                                 }
                             }
                         }
