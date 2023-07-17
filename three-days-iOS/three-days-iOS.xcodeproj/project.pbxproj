@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0F9C922A65150000E41731 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0F9C912A65150000E41731 /* DismissButton.swift */; };
 		0B1CE5902A5CF01E001BDB1D /* HabitCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */; };
 		0B373C602A1EFCBD003152A1 /* LoginCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */; };
 		0B6214322A5E481C001A78D2 /* Mate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6214312A5E481C001A78D2 /* Mate.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B0F9C912A65150000E41731 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateView.swift; sourceTree = "<group>"; };
 		0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCompleteView.swift; sourceTree = "<group>"; };
 		0B6214312A5E481C001A78D2 /* Mate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 		0BBA369F2A1C589B0021186C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0B0F9C912A65150000E41731 /* DismissButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				A84AC4422A29E83600AE6264 /* Config.swift in Sources */,
 				A890E89C2A3EF7CD0051A5E9 /* NetworkAgent.swift in Sources */,
 				A8D13F762A176BA600159864 /* MainView.swift in Sources */,
+				0B0F9C922A65150000E41731 /* DismissButton.swift in Sources */,
 				A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */,
 				0BF80BA92A4E9ACC0097EC8F /* HabitViewModel.swift in Sources */,
 				0BD37A682A1DAC0A005F5190 /* Member.swift in Sources */,

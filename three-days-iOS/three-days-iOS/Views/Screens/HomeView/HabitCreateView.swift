@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HabitCreateView: View {
+    @Environment(\.dismiss) var dismiss
     @ObservedObject var vm = HabitViewModel()
     @State var isAlarmOn:Bool = false
     @State var weekdays:[Bool] = Array(repeating: false, count: 7)
@@ -176,6 +177,9 @@ struct HabitCreateView: View {
             }
         }
         .font(.custom("SUIT-Medium", size: 14))
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Text("습관을 만들어볼까요?").font(.custom("SUIT-Bold", size: 20)),
+                            trailing: DismissButton())
     }
     
     // 만들기 버튼을 활성화 시킬 수 있는 조건들을 검사하는 함수
