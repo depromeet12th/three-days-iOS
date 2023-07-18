@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B0F9C922A65150000E41731 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0F9C912A65150000E41731 /* DismissButton.swift */; };
+		0B0FC0732A660A3C002AF9B8 /* CustomImojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0FC0722A660A3C002AF9B8 /* CustomImojiPicker.swift */; };
 		0B1CE5902A5CF01E001BDB1D /* HabitCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */; };
 		0B373C602A1EFCBD003152A1 /* LoginCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */; };
 		0B6214322A5E481C001A78D2 /* Mate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6214312A5E481C001A78D2 /* Mate.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		0B0F9C912A65150000E41731 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		0B0FC0722A660A3C002AF9B8 /* CustomImojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImojiPicker.swift; sourceTree = "<group>"; };
 		0B1CE58F2A5CF01E001BDB1D /* HabitCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateView.swift; sourceTree = "<group>"; };
 		0B373C5F2A1EFCBD003152A1 /* LoginCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCompleteView.swift; sourceTree = "<group>"; };
 		0B6214312A5E481C001A78D2 /* Mate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mate.swift; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 		0BF80BA82A4E9ACC0097EC8F /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		0BF80BAA2A4E9DD90097EC8F /* HabitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitService.swift; sourceTree = "<group>"; };
 		0BF80BAC2A4EA0B20097EC8F /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
-		0BF80BAE2A4EB1A50097EC8F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		0BF80BAE2A4EB1A50097EC8F /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomAlertView.swift; path = "../New Group/CustomAlertView.swift"; sourceTree = "<group>"; };
 		6E4049CD08416D14729395A9 /* Pods_three_days_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_three_days_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		742ED8F18608707C8C46396B /* Pods-three-days-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-three-days-iOS.debug.xcconfig"; path = "Target Support Files/Pods-three-days-iOS/Pods-three-days-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A84AC4402A29E56200AE6264 /* Authorization.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Authorization.xcconfig; sourceTree = "<group>"; };
@@ -105,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B0FC0712A6609C3002AF9B8 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				0BF80BAE2A4EB1A50097EC8F /* CustomAlertView.swift */,
+				0B0FC0722A660A3C002AF9B8 /* CustomImojiPicker.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		0B76B5632A1C3C4D00C45600 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +178,7 @@
 				0B76B56A2A1C473B00C45600 /* OnboardingView */,
 				0BD37A632A1D9A6F005F5190 /* LoginView */,
 				A87CB08D2A3F0BCC00ADF0B1 /* HomeView */,
-				0BF80BAE2A4EB1A50097EC8F /* CustomAlertView.swift */,
+				0B0FC0712A6609C3002AF9B8 /* CustomView */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -445,6 +456,7 @@
 				A84AC4422A29E83600AE6264 /* Config.swift in Sources */,
 				A890E89C2A3EF7CD0051A5E9 /* NetworkAgent.swift in Sources */,
 				A8D13F762A176BA600159864 /* MainView.swift in Sources */,
+				0B0FC0732A660A3C002AF9B8 /* CustomImojiPicker.swift in Sources */,
 				0B0F9C922A65150000E41731 /* DismissButton.swift in Sources */,
 				A8D13F742A176BA600159864 /* three_days_iOSApp.swift in Sources */,
 				0BF80BA92A4E9ACC0097EC8F /* HabitViewModel.swift in Sources */,

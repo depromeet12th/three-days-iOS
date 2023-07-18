@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 import Combine
 
 /// Result 확장
@@ -44,6 +45,28 @@ func getDeviceID() -> String? {
     return nil
 }
 
+// 원하는 모서리만 round 시킬 수 있도록 확장
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape(RoundedCorners(radius: radius, corners: corners))
+    }
+}
+
+struct RoundedCorners: Shape {
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
+
 extension UserDefaults {
     static let isLogginedKey = "isLoggined"
+}
+
+// 
+func sizeFitToScreen(_ size: CGFloat) -> CGFloat {
+    return 0
 }
