@@ -70,3 +70,11 @@ extension UserDefaults {
 func sizeFitToScreen(_ size: CGFloat) -> CGFloat {
     return 0
 }
+
+class EmojiList {
+    let faceEmojiList: [String] = ["😀", "😆", "😂", "☺️", "😇", "🙂", "😉", "😆", "😂", "☺️", "😇", "🙂"]
+    let foodEmojiList: [String] = ["🍖", "🍋", "🍕"]
+    let animalEmojiList: [String] = ["🐰", "🐺", "🐷"]
+    let objectEmojiList: [String] = ["❤️"] // symbol + objects
+    let activityEmojiList: [String] = ["🎾"]
+}
