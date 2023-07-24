@@ -11,6 +11,7 @@ struct HabitCreateView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var vm = HabitViewModel()
     @State var isAlarmOn:Bool = false
+    @State var showingEmojiPicker: Bool = false
     @State var weekdays:[Bool] = Array(repeating: false, count: 7)
     let weekdaysString:[String] = ["월", "화", "수", "목", "금", "토", "일"]
     let colorArray:[String] = ["GREEN", "BLUE", "PINK"]
@@ -25,7 +26,7 @@ struct HabitCreateView: View {
                     HStack {
                         // 이모지 picker
                         Button(action: {
-                            
+                            showingEmojiPicker.toggle()
                         }) {
                             ZStack {
                                 Rectangle()

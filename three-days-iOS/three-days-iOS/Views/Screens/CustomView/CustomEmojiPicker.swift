@@ -22,7 +22,7 @@ struct CustomEmojiPicker: View {
                 .opacity(0.7)
                 .ignoresSafeArea()
                 .onTapGesture {
-                    isShowing.toggle()
+                    isShowing.toggle() // bottom sheet 안보이게 ..
                 }
             
             emojiSelectionView
@@ -83,23 +83,29 @@ extension CustomEmojiPicker {
                 
                 // Emoji 선택
                 VStack {
-                    ForEach(0..<nowEmojiSection.count/6 + min(nowEmojiSection.count%6, 1), id: \.self) { i in
-                        Text("\(i)")
-                        HStack {
-                            ForEach(0..<6, id: \.self) { j in
-                                    Button(action: {
-                                        emojiPath = nowEmojiSection[i*6 + j]
-                                    }) {
-                                        ZStack {
-                                            Rectangle()
-                                                .frame(width: 30, height: 30)
-                                            
-                                            Text(nowEmojiSection[i*6 + j])
-                                            
-                                            Text("\(i*6 + j)")
-                                        }
-                                    }
-                            }
+                    emojiGridView
+                }
+            }
+        }
+    }
+    
+    var emojiGridView: some View {
+        ScrollView {
+            let columns: [GridItem] = [
+                GridItem(.fixed(50), spacing: 11),
+                GridItem(.fixed(50), spacing: 11), GridItem(.fixed(50), spacing: 11),
+                                       GridItem(.fixed(50), spacing: 11), GridItem(.fixed(50), spacing: 11), GridItem(.fixed(50), spacing: 11)]
+            
+            LazyVGrid(columns: columns) {
+                ForEach(nowEmojiSection, id: \.self) { emoji in
+                    Button(action: {
+                        emojiPath = emoji
+                    }) {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 30, height: 30)
+                            
+                            Text(emoji)
                         }
                     }
                 }
