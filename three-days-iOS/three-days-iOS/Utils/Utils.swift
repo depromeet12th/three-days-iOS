@@ -28,12 +28,12 @@ extension Result {
 
 /// 현재 날짜 가져오기 (원하는 형식에 맞게)
 class DateUtil {
-    static func getCurrentDate(format: String) -> String {
+    static func getCurrentDate(date: Date, format: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
         dateFormatter.dateFormat = format
         
-        return dateFormatter.string(from: Date())
+        return dateFormatter.string(from: date)
     }
 }
 

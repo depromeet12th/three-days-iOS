@@ -100,6 +100,7 @@ extension CustomEmojiPicker {
                 ForEach(nowEmojiSection, id: \.self) { emoji in
                     Button(action: {
                         emojiPath = emoji
+                        isShowing.toggle()
                     }) {
                         ZStack {
                             Rectangle()

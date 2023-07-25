@@ -15,7 +15,7 @@ struct HomeView: View {
             VStack {
                 /// 날짜 및 마이페이지 이동
                 HStack {
-                    Text(DateUtil.getCurrentDate(format: "M월 d일 EEEE"))
+                    Text(DateUtil.getCurrentDate(date: Date(), format: "M월 d일 EEEE"))
                         .font(.custom("SUIT-Bold", size: 20))
                     
                     Spacer()

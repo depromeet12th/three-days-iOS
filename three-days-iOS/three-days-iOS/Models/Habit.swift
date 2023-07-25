@@ -11,7 +11,7 @@ struct Habit: Codable {
     var id: Int
     var memberId: Int
     var title: String
-    var imojiPath: String
+    var emojiPath: String
     var color: String
     var dayOfWeeks: [String]
     var notification: Notification
@@ -28,7 +28,7 @@ struct Habit: Codable {
         id = 0
         memberId = 0
         title = ""
-        imojiPath = "😀"
+        emojiPath = "😀"
         color = "GREEN"
         dayOfWeeks = []
         notification = Notification()
