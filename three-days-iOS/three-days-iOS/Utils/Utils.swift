@@ -10,6 +10,38 @@ import UIKit
 import SwiftUI
 import Combine
 
+
+
+struct HourPicker: View {
+    @Binding var selectedHour: Int
+    
+    var body: some View {
+        Picker("", selection: $selectedHour) {
+            ForEach(0..<24, id: \.self) { hour in
+                Text(String(format: "%02d", hour))
+            }
+        }
+        .pickerStyle(WheelPickerStyle())
+        .frame(width: 80)
+    }
+}
+
+struct MinutePicker: View {
+    @Binding var selectedMinute: Int
+    
+    var body: some View {
+        Picker("", selection: $selectedMinute) {
+            ForEach(0..<2, id: \.self) { minute in
+                Text(String(format: "%02d", minute * 30))
+            }
+        }
+        .pickerStyle(WheelPickerStyle())
+        .frame(width: 80)
+    }
+}
+
+
+
 /// Result 확장
 extension Result {
     func publisher() -> AnyPublisher<Success, Failure> {
